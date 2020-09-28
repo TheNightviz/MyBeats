@@ -9,4 +9,4 @@ This is Alex Burke changing the myBeats project README
 
 This is Shemely Sarain editing the myBeats readme
 
-This is Rey Ortiz changing MyBeats readme
+This is Rey Ortiz changing MyBeats readme.....
