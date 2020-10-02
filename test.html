@@ -4,19 +4,19 @@
 body { 
   display: grid;
   grid-template-areas: 
-    "header header header"
+    "header article ads"
     "nav article ads"
     "nav article ads";
   grid-template-rows: 80px 1fr 70px;  
   grid-template-columns: 20% 1fr 15%;
-  grid-row-gap: 10px;
-  grid-column-gap: 10px;
+  grid-row-gap: 5px;
+  grid-column-gap: 5px;
   height: 100vh;
   margin: 0;
   }  
 header, footer, article, nav, div {
-  padding: 1.2em;
-  background: green;
+  padding: 1.0em;
+  background: darkgray;
   }
 #pageHeader {
   grid-area: header;
@@ -45,8 +45,16 @@ header, footer, article, nav, div {
 }
 </style>
 <body>
-  <header id="pageHeader">MyBeats Home Page</header>
-  <article id="mainArticle">Content</article>
-  <nav id="mainNav">Website Navigation</nav>
-  <div id="siteAds">Ads?</div>
+  <header id="pageHeader"><font size = "10" face = "verdana" color = "Black">MyBeats Home</font></header>
+  <article id="mainArticle">Your Spotify Data</article>
+  <nav id="mainNav"><p>Website Navigation:
+  <br>Connect with Spotify
+  <br>View your data
+  <br>Share your data with friends
+  </p>
+  </nav>
+  <div id="siteAds"><p>Advertisements
+  <br> This could be your ad here!
+  </p>
+  </div>
 </body>
