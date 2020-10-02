@@ -1,19 +1,29 @@
 <!doctype html>
-<title>Basic Layout</title>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="keywords" content="music, spotify, mybeats, my beats">
+    <meta name="description" content="The official website of the MyBeats music tracking service">
+    <meta name="author" content="Alex Burke">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyBeats</title>
+    <link rel="stylesheet" href="./main.css">
+
+  </head>
 <style>
-body { 
+body {
   display: grid;
-  grid-template-areas: 
+  grid-template-areas:
     "header article ads"
     "nav article ads"
     "nav article ads";
-  grid-template-rows: 80px 1fr 70px;  
+  grid-template-rows: 80px 1fr 70px;
   grid-template-columns: 20% 1fr 15%;
   grid-row-gap: 5px;
   grid-column-gap: 5px;
   height: 100vh;
   margin: 0;
-  }  
+  }
 header, footer, article, nav, div {
   padding: 1.0em;
   background: darkgray;
@@ -21,25 +31,25 @@ header, footer, article, nav, div {
 #pageHeader {
   grid-area: header;
   }
-#mainArticle { 
-  grid-area: article;      
+#mainArticle {
+  grid-area: article;
   }
-#mainNav { 
-  grid-area: nav; 
+#mainNav {
+  grid-area: nav;
   }
-#siteAds { 
-  grid-area: ads; 
-  } 
+#siteAds {
+  grid-area: ads;
+  }
 /* Stack the layout on small devices/viewports. */
 @media all and (max-width: 575px) {
-  body { 
-    grid-template-areas: 
+  body {
+    grid-template-areas:
       "header"
       "article"
       "ads"
       "nav"
       "footer";
-    grid-template-rows: 80px 1fr 70px 1fr 70px;  
+    grid-template-rows: 80px 1fr 70px 1fr 70px;
     grid-template-columns: 1fr;
  }
 }
@@ -58,3 +68,4 @@ header, footer, article, nav, div {
   </p>
   </div>
 </body>
+</html>
