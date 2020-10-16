@@ -11,4 +11,6 @@ This is Shemely Sarain editing the myBeats readme
 
 This is Rey Ortiz changing MyBeats readme.....
 
+
+System Architecture:
 ![alt text](https://github.com/TheNightviz/MyBeats/blob/master/System%20Architecture.png "System Architecture")
