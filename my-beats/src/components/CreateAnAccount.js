@@ -1,10 +1,14 @@
 import React from 'react'
+import Registration from './Registration';
+
 
 const CreateAnAccount = () => {
     return (
-       
-        <h1>Create an account!</h1>
-        
+
+        <div>
+    
+            <Registration />
+        </div>        
     );
 }
 export default CreateAnAccount;

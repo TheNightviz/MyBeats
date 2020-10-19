@@ -1,8 +1,12 @@
 import React from 'react'
+import HomeBackGround from './HomeBackground';
 
 const Home = () => {
     return (
-        <h1>This is the landing page. More text goes here.</h1>
+       
+       <div>
+           <HomeBackGround />
+       </div>
 
 
     );
