@@ -1,39 +1,22 @@
 import React, { Component } from 'react';
-import { Form} from "react-bootstrap";
+// import { Form} from "react-bootstrap";
 
-class Login extends Component{
-    render()
-    {
-
-        return(
-        
-          <div style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: '100vh'}}>
-
-
-          <Form>
-              <div className='form-group'>
-                  <label htmlFor='name'>Email</label>
-                  <input type='text' />
-              </div>
-              <div className='form-group'>
-                  <label htmlFor='password'>Password</label>
-                  <input type='password'  />
-              </div>
-              
-              <input type="submit" value="Register" className="btn btn-primary btn-b"></input>
-          </Form>
-
+const Login = () => {
+    return (
+      <div className="login-form">
+        <h1>See your Beats.</h1>
+        <h6>Log-in to access your account below</h6>
+        <form>
+          <label for="uname">Username:</label><br />
+          <input type="text" id="uname" name="uname" /><br />
+          <label for="password">Password:</label><br />
+          <input type="text" id="password" name="password" />
+          <br />
+          <input type="submit" />
+        </form>
       </div>
-
-
-
     );
 
     }
-}
-        
-        
-        
-        
 
 export default Login;
