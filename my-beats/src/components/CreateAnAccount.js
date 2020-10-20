@@ -1,7 +1,14 @@
 import React from 'react'
+import Registration from './Registration';
+
 
 const CreateAnAccount = () => {
     return (
+
+        // <div>
+    
+        //     <Registration />
+        // </div>        
       <div className="create-account-form">
         <h1>Start seeing your Beats.</h1>
         <h6>Create your account below</h6>

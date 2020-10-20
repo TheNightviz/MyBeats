@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { Component } from 'react';
+// import { Form} from "react-bootstrap";
 
 const Login = () => {
     return (
@@ -15,5 +16,7 @@ const Login = () => {
         </form>
       </div>
     );
-}
+
+    }
+
 export default Login;
