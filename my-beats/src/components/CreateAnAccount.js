@@ -11,8 +11,5 @@ const CreateAnAccount = () => {
     );
 }
 
-function submitForm() {
-  document.getElementById("create-account-form").submit();
-}
 
 export default CreateAnAccount;
