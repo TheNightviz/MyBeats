@@ -2,10 +2,10 @@ import React from 'react'
 
 const CreateAnAccount = () => {
     return (
-      <div className="create-account-form">
+      <div className="create-account">
         <h1>Start seeing your Beats.</h1>
-        <h6>Create your account below</h6>
-        <form>
+        <h5>Create your account below</h5>
+        <form name="create-account-form">
           <label for="uname">Username:</label><br />
           <input type="text" id="uname" name="uname" /><br />
           <label for="password">Password:</label><br />
@@ -13,10 +13,15 @@ const CreateAnAccount = () => {
           <label for="email">Email:</label><br />
           <input type="text" id="email" name="email" />
           <br />
-          <input type="submit" />
+          <input type="button" onClick="submitForm()" value="Create Account"/>
         </form>
       </div>
 
     );
 }
+
+function submitForm() {
+  document.getElementById("create-account-form").submit();
+}
+
 export default CreateAnAccount;
