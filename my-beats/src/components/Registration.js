@@ -10,11 +10,11 @@ const Registration = () => {
             <h6>Create your account below</h6>
 
             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '75vh' }}>
-                <form>
+                <form name="create-account-form">
                     <label htmlFor="uname">Username:</label><br />
                     <input type="text" id="uname" name="uname" /><br />
                     <label htmlFor="password">Password:</label><br />
-                    <input type="text" id="password" name="password" /><br />
+                    <input type="password" id="password" name="password" /><br />
                     <label htmlFor="email">Email:</label><br />
                     <input type="text" id="email" name="email" />
                     <br />
@@ -38,6 +38,10 @@ const Registration = () => {
 
     )
 
+}
+
+function submitForm() {
+  document.getElementById("create-account-form").submit();
 }
 
 export default Registration;
