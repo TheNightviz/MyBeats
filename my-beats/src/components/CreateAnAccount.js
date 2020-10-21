@@ -1,4 +1,6 @@
 import React from 'react'
+import Registration from './Registration';
+
 
 const CreateAnAccount = () => {
     return (
@@ -16,7 +18,11 @@ const CreateAnAccount = () => {
           <input type="button" onClick="submitForm()" value="Create Account"/>
         </form>
       </div>
-
+      <div>
+    
+            <Registration />
+      </div>        
+     
     );
 }
 
