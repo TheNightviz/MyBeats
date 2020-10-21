@@ -18,26 +18,11 @@ const Registration = () => {
                     <label htmlFor="email">Email:</label><br />
                     <input type="text" id="email" name="email" />
                     <br />
-                    <input type="submit" value="Register" className="btn btn-primary btn-b"></input>
+                    <input type="submit" value="Register" className="btn btn-primary btn-b" onClick={submitForm}></input>
                 </form>
             </div>
-
-
-
-
-
-
-
-
-
-
-
         </div>
-
-
-
     )
-
 }
 
 function submitForm() {
