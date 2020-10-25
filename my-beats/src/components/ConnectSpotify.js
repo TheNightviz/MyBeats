@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-<h1>text</h1>
-=======
 import React from 'react'
 
 const ConnectSpotify = () => {
@@ -11,4 +8,3 @@ const ConnectSpotify = () => {
     );
 }
 export default ConnectSpotify;
->>>>>>> master
