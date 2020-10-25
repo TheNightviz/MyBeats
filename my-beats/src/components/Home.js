@@ -6,6 +6,7 @@ const Home = () => {
        
        <div>
            <HomeBackGround />
+    
        </div>
         
 
