@@ -4,8 +4,8 @@ import React from 'react';
 const Login = () => {
   return (
     <div>
-      <h1>See your Beats.</h1>
-      <h6>Log-in to access your account below</h6>
+      <h1 style={{textAlign:'center', color:'black', fontSize:'30px', marginTop:'5%'}}>See your Beats</h1>
+      <h6 style={{textAlign:'center', color:'black', fontSize:'20px', marginBottom:'-8%'}}>Log-in to access your account below</h6>
 
       <div className="login-form" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '75vh' }}>
         <form>
