@@ -4,6 +4,7 @@ import { BrowserRouter, Route } from 'react-router-dom'
 import Home from './components/Home'
 import CreateAnAccount from './components/CreateAnAccount'
 import Login from './components/Login'
+import ConnectSpotify from './components/ConnectSpotify'
 
 
 

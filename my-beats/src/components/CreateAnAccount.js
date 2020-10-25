@@ -4,12 +4,12 @@ import Registration from './Registration';
 
 const CreateAnAccount = () => {
     return (
+      <div>
+         <Registration />
+      </div>
 
-        <div>
-    
-            <Registration />
-        </div>        
-     
     );
 }
+
+
 export default CreateAnAccount;
