@@ -8,7 +8,7 @@ const Registration = () => {
             <h1 style={{textAlign:'center', color:'black', fontSize:'30px', marginTop:'5%'}}>Start seeing your Beats</h1>
             <h6 style={{textAlign:'center', color:'black', fontSize:'20px', marginBottom:'-8%'}}>Create your account below</h6>
 
-            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '75vh' }}>
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '90vh' }}>
                 <form name="create-account-form">
                     <label htmlFor="uname">Username:</label><br />
                     <input type="text" id="uname" name="uname" /><br />
