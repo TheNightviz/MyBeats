@@ -1,8 +1,25 @@
-import React from 'react'
+import React from 'react';
+// import { Form} from "react-bootstrap";
 
 const Login = () => {
-    return (
-        <h1>Login page goes here!!!</h1>
-    );
+  return (
+    <div>
+      <h1 style={{textAlign:'center', color:'black', fontSize:'30px', marginTop:'5%'}}>See your Beats</h1>
+      <h6 style={{textAlign:'center', color:'black', fontSize:'20px', marginBottom:'-8%'}}>Log-in to access your account below</h6>
+
+      <div className="login-form" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '75vh' }}>
+        <form>
+          <label for="uname">Username:</label><br />
+          <input type="text" id="uname" name="uname" /><br />
+          <label for="password">Password:</label><br />
+          <input type="password" id="password" name="password" />
+          <br />
+          <input type="submit" value="Sign in" className="btn btn-primary btn-b grey darken-1" style={{color:'#f2C75C'}}></input>
+        </form>
+      </div>
+    </div>
+  );
+
 }
+
 export default Login;
