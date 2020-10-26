@@ -17,7 +17,7 @@ const Registration = () => {
                     <label htmlFor="email">Email:</label><br />
                     <input type="text" id="email" name="email" />
                     <br />
-                    <input type="submit" value="Register" className="btn btn-primary btn-b" onClick={submitForm}></input>
+                    <input type="submit" value="Register" className="btn btn-primary btn-b grey darken-1" onClick={submitForm} style={{color:'#f2C75C'}} ></input>
                 </form>
             </div>
         </div>
