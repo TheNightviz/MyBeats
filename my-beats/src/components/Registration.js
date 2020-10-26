@@ -1,7 +1,8 @@
+import { wait } from '@testing-library/react';
 import React from 'react'
+import {getLogin} from '../userAuth';
 
 const Registration = () => {
-
     return (
 
         <div>
@@ -17,15 +18,24 @@ const Registration = () => {
                     <label htmlFor="email">Email:</label><br />
                     <input type="text" id="email" name="email" />
                     <br />
-                    <input type="submit" value="Register" className="btn btn-primary btn-b grey darken-1" onClick={submitForm} style={{color:'#f2C75C'}} ></input>
+                    <input type="submit" value="Register" className="btn btn-primary btn-b grey darken-1" onClick={submitForm()} style={{color:'#f2C75C'}} ></input>
                 </form>
             </div>
+            <button onClick={submitForm()}>Test Button</button>
         </div>
     )
+
+    function submitForm() {
+        //document.getElementById("create-account-form").submit();
+        console.log("THIS WORKS");
+
+       // this line will redirect to spotify login page, but it happense immediately, even using onClick handler
+        //window.location.href='/ConnectSpotify';
+    
+        
+    }
 }
 
-function submitForm() {
-  document.getElementById("create-account-form").submit();
-}
+
 
 export default Registration;
