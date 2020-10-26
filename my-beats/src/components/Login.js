@@ -14,7 +14,7 @@ const Login = () => {
           <label for="password">Password:</label><br />
           <input type="password" id="password" name="password" />
           <br />
-          <input type="submit" value="Sign in" className="btn btn-primary btn-b"></input>
+          <input type="submit" value="Sign in" className="btn btn-primary btn-b grey darken-1" style={{color:'#f2C75C'}}></input>
         </form>
       </div>
     </div>
