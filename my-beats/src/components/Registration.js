@@ -1,8 +1,14 @@
 import { wait } from '@testing-library/react';
 import React from 'react'
 import {getLogin} from '../userAuth';
+import { useHistory } from 'react-router-dom';
+
+
 
 const Registration = () => {
+    const history = useHistory();
+
+
     return (
 
         <div>
@@ -18,22 +24,20 @@ const Registration = () => {
                     <label htmlFor="email">Email:</label><br />
                     <input type="text" id="email" name="email" />
                     <br />
-                    <input type="submit" value="Register" className="btn btn-primary btn-b grey darken-1" onClick={submitForm()} style={{color:'#f2C75C'}} ></input>
+                    <input type="submit" value="Register" className="btn btn-primary btn-b grey darken-1" onClick={()=> history.push("/ConnectSpotify")} style={{color:'#f2C75C'}} ></input>
                 </form>
             </div>
-            <button onClick={submitForm()}>Test Button</button>
+        {/* <button onClick={submitForm()}>Test Button</button> */}
         </div>
     )
 
-    function submitForm() {
-        //document.getElementById("create-account-form").submit();
-        console.log("THIS WORKS");
+    // function submitForm() {
+    //     // document.getElementById("create-account-form").submit();
+    //     console.log("THIS WORKS");
 
-       // this line will redirect to spotify login page, but it happense immediately, even using onClick handler
-        //window.location.href='/ConnectSpotify';
-    
-        
-    }
+    //    // this line will redirect to spotify login page, but it happense immediately, even using onClick handler
+    //window.location.href='/ConnectSpotify';
+    // }
 }
 
 
