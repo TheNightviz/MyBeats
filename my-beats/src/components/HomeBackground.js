@@ -13,7 +13,6 @@ const HomeBackGround = () =>{
                do one deeper. MyBeats gives you the power to understand your music.
                Stop listening, start seeing.</p>
 
-
             </div>
     )
 }
