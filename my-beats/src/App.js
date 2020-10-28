@@ -23,7 +23,11 @@ class App extends Component
           <Route exact path='/'  component={Home} />
           <Route exact path='/CreateAnAccount'  component={CreateAnAccount} />
           <Route exact path='/Login'  component={Login} />
+<<<<<<< HEAD
 >>>>>>> origin/master
+=======
+          <Route exact path='/ConnectSpotify' component={ConnectSpotify} />
+>>>>>>> e76071bf0ca0d88993927cd95f69d02e11de5188
 
         </div>
       </BrowserRouter>
