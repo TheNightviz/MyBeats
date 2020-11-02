@@ -10,6 +10,7 @@ const Navbar = () => {
                     <li><a href="/Login"style={{color:'#f2C75C', fontSize:'15px',}}>Login</a></li>
 
                 </ul>
+                <img src = '/Videos/logo_transparent.png' width="50px" height="50px" className="right"></img>
             </div>
         </nav>
     )

@@ -15,9 +15,10 @@ class App extends Component
       <BrowserRouter>
         <div className="App">
           <Navbar />
-          <Route exact path='/'  component={Home} />
-          <Route exact path='/CreateAnAccount'  component={CreateAnAccount} />
-          <Route exact path='/Login'  component={Login} />
+
+          <Route exact path='/' component={Home} />
+          <Route exact path='/CreateAnAccount' component={CreateAnAccount} />
+          <Route exact path='/Login' component={Login} />
           <Route exact path='/ConnectSpotify' component={ConnectSpotify} />
 
         </div>
