@@ -6,8 +6,10 @@ const HomeBackGround = () =>{
 
     return (
         <div className='hero-container' style={{flexDirection:'column',alignItems:'center',display:'flex', objectFit:'contain'}} >
-            <video src='/Videos/MusicBackground-HD 720p.mov' autoPlay loop muted style={{objectFit: 'cover', width: '101%', height: '100%', position: 'fixed', zIndex:'-1'}}></video>
-
+            <video src='/Videos/MusicBackground-HD 720p.mov' autoPlay loop muted style={{objectFit: 'cover', width: '101%', height: '100%', position: 'fixed', zIndex:'-2'}}></video>
+            {/* dont include below
+            <img src = '/Photos/mbLogoFinal.png' style={{padding:'5px', maxWidth:'50%', height:'auto', position:'sticky', position:'-webkit-sticky', top:'10px', zIndex:'-1'}}></img>
+            */}
             <HomeRotatingText />
 
             <p class='landingText' style={{

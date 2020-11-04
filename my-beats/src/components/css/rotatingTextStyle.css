@@ -1,8 +1,10 @@
-h1 {
+h1.fade {
+  color: #f2C75C;
   font-size: 70px;
   margin-top: 10%;
   animation-name: fadeIn;
   animation-duration: 5s;
+  animation-fill-mode: forwards;
 }
 
 @keyframes fadeIn {
@@ -11,11 +13,7 @@ h1 {
    100% {opacity: 1;}
 }
 
-h1.rot {
-  color: #f2C75C;
-}
-
-h1.base {
+#baseText {
   color: #F6F4E6;
   margin-right: 10px;
 }
