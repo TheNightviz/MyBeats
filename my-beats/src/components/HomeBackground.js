@@ -17,14 +17,16 @@ const HomeBackGround = () =>{
             <p class='landingText' style={{
                textAlign:'center',
                color: '#F6F4E6',
+               background: 'rgb(65, 68, 75, 0.9)',
                padding: '20px',
                margin: '5px',
                marginBottom: '20px',
                width: '40%',
                minWidth: '700px',
                fontSize: '30px',
-               background: '#41444B',
-               borderRadius: '7px'
+
+               borderRadius: '7px',
+               opacity: '1'
                }}>
                 Music is more than just what flows through your ears.<br />
                 <br />
