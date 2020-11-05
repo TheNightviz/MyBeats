@@ -16,3 +16,7 @@ header {
   text-size: 20%;
   text-color: limegreen;
 }
+
+html {
+   min-height: 100%;
+}
