@@ -5,7 +5,7 @@ const Navbar = () => {
         <nav className="nav-wrapper grey darken-4">
             <div className="container">
                 <a href="/" classname="left">
-                      <img src = '/Photos/mbLogoFinal.png' style={{padding:'5px', maxWidth:'12%', height:'auto'}}></img>
+                      <img src = '/Photos/mbLogoFinal.png' style={{padding:'5px', width:'33px', height:'auto'}}></img>
                       <h2 className="brand-logo"style={{textAlign:'left', color:'#f2C75C', fontSize:'55px', fontFamily:'Impact, Charcoal, sans-serif'}}>MyBeats</h2>
                 </a>
                 <ul className="right">
