@@ -8,7 +8,7 @@ const HomeBackGround = () =>{
         <div className='hero-container' style={{flexDirection:'column',alignItems:'center',display:'flex', objectFit:'contain'}} >
             <video src='/Videos/MusicBackground-HD 720p.mov' autoPlay loop muted style={{
                objectFit: 'cover',
-               width: '101%',
+               width: '100%',
                height: '100%',
                position: 'absolute', zIndex:'-3'}}></video>
 
@@ -41,8 +41,5 @@ const HomeBackGround = () =>{
         </div>
     )
 }
-
-
-
 
 export default HomeBackGround
