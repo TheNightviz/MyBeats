@@ -1,16 +1,16 @@
 import React from 'react'
-import LandingBackGround from './LandingBackground';
+import HomeBackGround from './HomeBackground';
 import BottomFooter from './BottomFooter';
 
-const LandingPage = () => {
+const Home = () => {
     return (
 
        <div>
-           <LandingBackGround />
+           <HomeBackGround />
            <BottomFooter />
        </div>
 
 
     );
 }
-export default LandingPage;
+export default Home;
