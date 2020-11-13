@@ -6,7 +6,6 @@ import { useHistory } from 'react-router-dom';
 
 const SignUpPage = () => (
     <div>
-      <h1>Sign Up</h1>
       <SignUpForm />
     </div>
   );
@@ -61,6 +60,12 @@ class SignUpFormBase extends Component{
         username === '';
         console.log(passwordOne === '');
         return (
+          <div>
+            <h1 style={{textAlign:'center', color:'black', fontSize:'30px', marginTop:'5%'}}>See your Beats</h1>
+            <h6 style={{textAlign:'center', color:'black', fontSize:'20px', marginBottom:'-8%'}}>Sign-up to start viewing your music data</h6>
+
+            <div className="login-form" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '75vh' }}>
+
           <form onSubmit={this.onSubmit}>
             <input
               name="username"
@@ -90,12 +95,12 @@ class SignUpFormBase extends Component{
               type="password"
               placeholder="Confirm Password"
             />
-            <button disabled={isInvalid} type="submit">
-                Sign Up
-                </button>
+             <button disabled = {isInvalid} type="submit" className="btn btn-primary btn-b grey darken-1" style={{color:'#f2C75C'}}>Sign Up</button>
      
             {error && <p>{error.message}</p>}
           </form>
+          </div>
+          </div>
         );
       }
     }
