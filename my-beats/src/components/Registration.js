@@ -1,15 +1,13 @@
 import { wait } from '@testing-library/react';
 import React, { Component } from 'react'
-import { FirebaseContext } from './Firebase';
+import { withFirebase } from './Firebase';
 import {getLogin} from '../userAuth';
 import { useHistory } from 'react-router-dom';
 
 const SignUpPage = () => (
     <div>
-      <h1>Test</h1>
-      <FirebaseContext.Consumer>
-      {firebase => <SignUpForm firebase={firebase} />}
-      </FirebaseContext.Consumer>
+      <h1>Sign Up</h1>
+      <SignUpForm />
     </div>
   );
 
@@ -21,15 +19,8 @@ const SignUpPage = () => (
     error: null,
   };
 
-const INITIAL_STATE = {
-  username: '',
-  email: '',
-  passwordOne: '',
-  passwordTwo: '',
-  error: null,
-};
 
-class SignUpForm extends Component{
+class SignUpFormBase extends Component{
     constructor(props) {
         super(props);
         this.state = {...INITIAL_STATE};
@@ -107,7 +98,10 @@ class SignUpForm extends Component{
         );
       }
     }
-     
+    
+const SignUpForm = withFirebase(SignUpFormBase);
+export default SignUpPage;
+export { SignUpForm };
 /*
 const Registration = () => {
     const history = useHistory();
@@ -145,6 +139,3 @@ const Registration = () => {
     // }
 }
 */
-
-export default SignUpPage;
-export { SignUpForm };
