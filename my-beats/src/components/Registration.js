@@ -21,6 +21,14 @@ const SignUpPage = () => (
     error: null,
   };
 
+const INITIAL_STATE = {
+  username: '',
+  email: '',
+  passwordOne: '',
+  passwordTwo: '',
+  error: null,
+};
+
 class SignUpForm extends Component{
     constructor(props) {
         super(props);
