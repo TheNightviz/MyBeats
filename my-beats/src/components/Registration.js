@@ -24,6 +24,7 @@ class SignUpFormBase extends Component{
     constructor(props) {
         super(props);
         this.state = {...INITIAL_STATE};
+        //add history push here?
     }
     onSubmit = event => {
         const { username, email, passwordOne } = this.state;
