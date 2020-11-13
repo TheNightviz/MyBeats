@@ -1,3 +1,5 @@
+
+/* delete maybe?
 import React from 'react'
 import Registration from './Registration';
 
@@ -7,9 +9,9 @@ const CreateAnAccount = () => {
       <div>
          <Registration />
       </div>
-
     );
 }
 
 
 export default CreateAnAccount;
+*/
