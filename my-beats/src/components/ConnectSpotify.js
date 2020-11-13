@@ -26,10 +26,15 @@ export default class ConnectSpotify extends React.Component {
   }
 
 
+
+
+
   render () {
     return (
-    <h1>Test Button {this.getTest()[0]}</h1>
-    
+      <div className="container">
+        <h1>Test Button {this.getTest()[0]}</h1>
+        <h6>HashString: {this.generateRandomString(8)}</h6>
+      </div>
     )
   }
 
@@ -37,7 +42,7 @@ export default class ConnectSpotify extends React.Component {
 
 /**
  * Changed old function declaration of this page to ConnectSpotify2, to avoid compilation errors. Eventually needs to be deprecated.
- */ 
+ */
 
 
 //export default ConnectSpotify;
