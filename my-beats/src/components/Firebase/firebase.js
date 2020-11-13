@@ -1,6 +1,7 @@
 import app from 'firebase/app';
 import 'firebase/auth';
 //code for connection to MyBeats firebase 
+
 const firebaseConfig = {
     apiKey: "AIzaSyAVCkrVOzEqm0-SMZoB4zGQ3scmdPS5RZo",
     authDomain: "mybeats-3bc04.firebaseapp.com",

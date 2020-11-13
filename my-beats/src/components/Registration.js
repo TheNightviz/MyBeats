@@ -1,25 +1,46 @@
 import { wait } from '@testing-library/react';
 import React, { Component } from 'react'
+import { FirebaseContext } from './Firebase';
 import {getLogin} from '../userAuth';
 import { useHistory } from 'react-router-dom';
 
-const SignUpPage = () => {
-    return (
-      <div>
-          <h1> test </h1>
-         <SignUpForm />
-      </div>
-    );
-}
+const SignUpPage = () => (
+    <div>
+      <h1>Test</h1>
+      <FirebaseContext.Consumer>
+      {firebase => <SignUpForm firebase={firebase} />}
+      </FirebaseContext.Consumer>
+    </div>
+  );
+
+  const INITIAL_STATE = {
+    username: '',
+    email: '',
+    passwordOne: '',
+    passwordTwo: '',
+    error: null,
+  };
 
 class SignUpForm extends Component{
     constructor(props) {
         super(props);
+        this.state = {...INITIAL_STATE};
     }
     onSubmit = event => {
+        const { username, email, passwordOne } = this.state;
  
+        this.props.firebase
+          .doCreateUserWithEmailAndPassword(email, passwordOne)
+          .then(authUser => {
+            this.setState({ ...INITIAL_STATE });
+          })
+          .catch(error => {
+            this.setState({ error });
+          });
+     
+        event.preventDefault();
     }
-    
+
     onChange = event => {
         this.setState({ [event.target.name]: event.target.value });
       };
@@ -38,7 +59,7 @@ class SignUpForm extends Component{
         passwordOne === '' ||
         email === '' ||
         username === '';
-
+        console.log(passwordOne === '');
         return (
           <form onSubmit={this.onSubmit}>
             <input
@@ -46,7 +67,7 @@ class SignUpForm extends Component{
               value={username}
               onChange={this.onChange}
               type="text"
-              placeholder="Full Name"
+              placeholder="Username"
             />
             <input
               name="email"
@@ -69,7 +90,9 @@ class SignUpForm extends Component{
               type="password"
               placeholder="Confirm Password"
             />
-            <button disabled = {isInvalid} type="submit">Sign Up</button>
+            <button disabled={isInvalid} type="submit">
+                Sign Up
+                </button>
      
             {error && <p>{error.message}</p>}
           </form>
