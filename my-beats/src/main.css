@@ -1,8 +1,6 @@
 /* This is the CSS for styling connect spotify page */
 
-#login, #loggedin {
-  display: none;
-}
+
 .text-overflow {
   overflow: hidden;
   text-overflow: ellipsis;
