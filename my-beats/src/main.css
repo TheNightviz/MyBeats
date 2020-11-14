@@ -1,0 +1,14 @@
+/* This is the CSS for styling connect spotify page */
+
+
+.text-overflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 500px;
+}
+
+/* this is just a test */
+h1 {
+  color: blue;
+}

@@ -8,9 +8,27 @@
 
 */
 
-let client_id = 'f8b0b0aa401a4597af0caa66ac4bb9e5';
-let client_secret = '0e447f9e9629472ea35eb73a13f45a1f';
-let redirect_uri = 'http://localhost:8888/callback';
+
+/** 
+var express = require('express'); // Express web server framework
+var request = require('request'); // "Request" library
+var cors = require('cors');
+var querystring = require('querystring');
+var cookieParser = require('cookie-parser');
+
+
+var client_id = 'f8b0b0aa401a4597af0caa66ac4bb9e5';
+var client_secret = '0e447f9e9629472ea35eb73a13f45a1f';
+var redirect_uri = 'http://localhost:8888/callback';
+*/
+
+
+/**
+ * Generates a random string containing numbers and letters
+ * @param  {number} length The length of the string
+ * @return {string} The generated string
+ */
+
 
 
 /*export function getLogin() {
