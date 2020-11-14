@@ -28,6 +28,7 @@ class App extends Component
           <Route exact path='/MyAccount' component={MyAccount} />
           <Route exact path='/Logout' component={LogOut} />
           <Route exact path='/MainPage' component={MainPage} />
+          
         </div>
       </BrowserRouter>
       
