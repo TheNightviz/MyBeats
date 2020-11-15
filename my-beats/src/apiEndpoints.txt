@@ -17,7 +17,7 @@ f8b0b0aa401a4597af0caa66ac4bb9e5:0e447f9e9629472ea35eb73a13f45a1f
 
 Token endpoint: 
 
-curl -H "Authorization: Basic ZjhiMGIwYWE0MDFhNDU5N2FmMGNhYTY2YWM0YmI5ZTU6MGU0NDdmOWU5NjI5NDcyZWEzNWViNzNhMTNmNDVhMWY=" -d grant_type=authorization_code -d code=AQAZaTwITQH4CxaI_2KcuoBFtJW-eMM8LbGPXzD84830ibtWoPAZgIyJ69yrjOEd_5ECZ2Sg4GvdEUhuTk7qNmo9JjnLlwQ-uNDiwZG69GX02TH1j8fYldTLcSkA91afihVVDEMwGEzF_R_WgkpIpFwC8vGbjwM0GbOOPj5d1rbHJ8LU -d redirect_uri=https%3A%2F%2Flocalhost%3A8888%2Fcallback%2F https://accounts.spotify.com/api/token
+curl -H "Authorization: Basic ZjhiMGIwYWE0MDFhNDU5N2FmMGNhYTY2YWM0YmI5ZTU6MGU0NDdmOWU5NjI5NDcyZWEzNWViNzNhMTNmNDVhMWY=" -d grant_type=authorization_code -d code=AQAh5uOkc-PGwPQ4qAfOM7-FndJLZfUXDuKr2Cl4kPTXE4TOuSL7xnYTmM2nyCY6V3km5NY6ud_DxH1zUyKpd-ouH3boItFVzK9hRKbPauXFkcFnZTU-t89Qip763rEoU2WEHDozRpSePH6DntwDC8wDCOOHe07I8eqH1WiIZh57YpU -d redirect_uri=https%3A%2F%2Flocalhost%3A8888%2Fcallback https://accounts.spotify.com/api/token
 
 
 
@@ -30,4 +30,3 @@ Access Token:
 
 Access Token value: 
 
-BQC2xiYZfhbRIE59gFDzdKvMzLlZNSVs_uihwjzW83ZnDI4U-N4isAO_R007_hIxBAqFb9sQKkunZtqcEIftsjpLf3VohFhjBywKZKAqMqTp17QJGUTfefBfm6VeLV1DI9iWdzGE_U6lNK8YBQ
