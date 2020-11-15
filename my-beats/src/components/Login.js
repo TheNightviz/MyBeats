@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import { withFirebase } from './Firebase';
 // import { Form} from "react-bootstrap";
+import Navbar from './Navbar';
+
 const SignInPage = () => (
   <div>
+    <Navbar />
     <SignInForm />
   </div>
 );

@@ -3,9 +3,11 @@ import React, { Component } from 'react'
 import { withFirebase } from './Firebase';
 import {getLogin} from '../userAuth';
 import { useHistory } from 'react-router-dom';
+import Navbar from './Navbar';
 
 const SignUpPage = () => (
     <div>
+        <Navbar />
       <SignUpForm />
     </div>
   );
