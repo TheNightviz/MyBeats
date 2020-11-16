@@ -1,3 +1,10 @@
+h1.sticky {
+  color: #f2C75C;
+  font-size: 70px;
+  margin-top: 10%;
+  position: absolute;
+}
+
 h1.fade {
   color: #f2C75C;
   font-size: 70px;
