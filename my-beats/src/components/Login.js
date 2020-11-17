@@ -2,30 +2,33 @@ import React, { Component } from 'react';
 import { withFirebase } from './Firebase';
 // import { Form} from "react-bootstrap";
 import Navbar from './Navbar';
+import BottomFooter from './BottomFooter';
+
 
 const SignInPage = () => (
-  <div>
+  <div class='pageContainer'>
     <Navbar />
     <SignInForm />
+    <BottomFooter />
   </div>
 );
- 
+
 const INITIAL_STATE = {
   email: '',
   password: '',
   error: null,
 };
- 
+
 class SignInFormBase extends Component {
   constructor(props) {
     super(props);
- 
+
     this.state = { ...INITIAL_STATE };
   }
- 
+
   onSubmit = event => {
     const { email, password } = this.state;
- 
+
     this.props.firebase
       .doSignInWithEmailAndPassword(email, password)
       .then(() => {
@@ -35,19 +38,19 @@ class SignInFormBase extends Component {
       .catch(error => {
         this.setState({ error });
       });
- 
+
     event.preventDefault();
   };
- 
+
   onChange = event => {
     this.setState({ [event.target.name]: event.target.value });
   };
- 
+
   render() {
     const { email, password, error } = this.state;
- 
+
     const isInvalid = password === '' || email === '';
- 
+
     return (
       <div>
       <h1 style={{textAlign:'center', color:'black', fontSize:'30px', marginTop:'5%'}}>See your Beats</h1>
@@ -70,7 +73,7 @@ class SignInFormBase extends Component {
             placeholder="Password:"
           />
           <button disabled = {isInvalid} type="submit" className="btn btn-primary btn-b grey darken-1" style={{color:'#f2C75C'}}>Sign In</button>
-  
+
           {error && <p>{error.message}</p>}
         </form>
       </div>
@@ -105,4 +108,3 @@ const Login = () => {
 
 }
 */
-

@@ -12,3 +12,8 @@
 h1 {
   color: blue;
 }
+
+.pageContainer {
+  position: relative;
+  min-height: 100vh;
+}
