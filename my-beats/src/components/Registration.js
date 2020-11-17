@@ -4,11 +4,14 @@ import { withFirebase } from './Firebase';
 import {getLogin} from '../userAuth';
 import { useHistory } from 'react-router-dom';
 import Navbar from './Navbar';
+import BottomFooter from './BottomFooter';
+
 
 const SignUpPage = () => (
-    <div>
+    <div class = 'pageContainer'>
         <Navbar />
       <SignUpForm />
+      <BottomFooter />
     </div>
   );
 
@@ -29,7 +32,7 @@ class SignUpFormBase extends Component{
     }
     onSubmit = event => {
         const { username, email, passwordOne } = this.state;
- 
+
         this.props.firebase
           .doCreateUserWithEmailAndPassword(email, passwordOne)
           .then(authUser => {
@@ -38,14 +41,14 @@ class SignUpFormBase extends Component{
           .catch(error => {
             this.setState({ error });
           });
-     
+
         event.preventDefault();
     }
 
     onChange = event => {
         this.setState({ [event.target.name]: event.target.value });
       };
-     
+
       render() {
         const {
           username,
@@ -98,7 +101,7 @@ class SignUpFormBase extends Component{
               placeholder="Confirm Password"
             />
              <button disabled = {isInvalid} type="submit" className="btn btn-primary btn-b grey darken-1" style={{color:'#f2C75C'}}>Sign Up</button>
-     
+
             {error && <p>{error.message}</p>}
           </form>
           </div>
@@ -106,7 +109,7 @@ class SignUpFormBase extends Component{
         );
       }
     }
-    
+
 const SignUpForm = withFirebase(SignUpFormBase);
 export default SignUpPage;
 export { SignUpForm };

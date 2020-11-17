@@ -1,21 +1,11 @@
 import React from 'react'
+import landingText from './css/landingText.css'
 
 const Home = () => {
     return (
 
        <div>
-           <p class='landingText' style={{
-              textAlign:'center',
-              position: 'absolute',
-
-              marginTop: '45vw',
-              color: '#F6F4E6',
-              background: 'rgb(33,33,33, 1)',
-              padding: '40px',
-              width: '100%',
-              minWidth: '800px',
-              fontSize: '30px',
-              }}>
+           <p class='landingText'>
                Music is more than just what flows through your ears.<br />
                <br />
                Music is a full body experience both on the dance floor and in the studio.<br />
@@ -29,6 +19,13 @@ const Home = () => {
                </span>
                <br />
            </p>
+            <div id='landingIconContainer'>
+              <p class='landingSubtext'>All your beats, all in one place.</p>
+              <img class='landingIcons' src='/Photos/spotifyicon.png' alt='Spotify'></img>
+              <img class='landingIcons' src='/Photos/soundcloudicon.png' alt='Soundcloud'></img>
+              <img class='landingIcons' src='/Photos/applemusicicon.png' alt='Apple Music'></img>
+              <p class='landingSubtext'>Find data on all your beats, across all platforms. Sign up for free today and start seeing your beats.</p>
+            </div>
 
        </div>
 

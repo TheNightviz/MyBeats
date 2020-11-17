@@ -15,6 +15,5 @@ h1 {
 
 .pageContainer {
   position: relative;
-  min-height: 100%;
-
+  min-height: 100vh;
 }

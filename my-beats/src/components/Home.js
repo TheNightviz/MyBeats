@@ -9,10 +9,10 @@ const Home = () => {
     return (
 
        <div class='pageContainer'>
-           <Navbar />
-           <HomeBackGround />
-           <HomeText />
-           <BottomFooter />
+         <Navbar />
+         <HomeBackGround />
+         <HomeText />
+         <BottomFooter />
        </div>
 
 

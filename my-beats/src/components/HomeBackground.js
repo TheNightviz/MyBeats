@@ -9,9 +9,9 @@ const HomeBackGround = () =>{
                objectFit: 'cover',
                width: '100%',
                height: 'auto',
-               position: 'absolute', zIndex:'-3'}}></video>
+               position: 'relative', zIndex:'-3'}}></video>
 
-            <h1 class='sticky' id='baseText' style={{float:'left', textAlign:'left'}}>your beats<span style={{color: '#f2C75C'}}> Visualized</span></h1>
+            <h1 class='sticky ' id='baseText' style={{float:'center', textAlign:'center', marginTop: '20px'}}>your beats<span style={{color: '#f2C75C'}}> Visualized</span></h1>
         </div>
     )
 }
