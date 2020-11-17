@@ -1,10 +1,18 @@
+h1.sticky {
+  color: #f2C75C;
+  font-size: 70px;
+  margin-top: 10%;
+  position: absolute;
+  animation-name: fadeIn;
+  animation-duration: 5s;
+  animation-fill-mode: forwards;
+}
+
 h1.fade {
   color: #f2C75C;
   font-size: 70px;
   margin-top: 10%;
-  animation-name: fadeIn;
-  animation-duration: 5s;
-  animation-fill-mode: forwards;
+
 }
 
 @keyframes fadeIn {
