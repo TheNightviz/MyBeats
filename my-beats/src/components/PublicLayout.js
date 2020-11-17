@@ -7,7 +7,10 @@ import ConnectSpotify from '../components/ConnectSpotify'
 
 
 class PublicLayout extends Component {
-    render() {
+    
+  
+  
+  render() {
       return (
         <div>
          

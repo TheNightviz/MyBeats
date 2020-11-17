@@ -2,7 +2,7 @@ import { wait } from '@testing-library/react';
 import React, { Component } from 'react'
 import { withFirebase } from './Firebase';
 import {getLogin} from '../userAuth';
-import { useHistory } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
 import Navbar from './Navbar';
 import BottomFooter from './BottomFooter';
 
@@ -100,7 +100,7 @@ class SignUpFormBase extends Component{
               type="password"
               placeholder="Confirm Password"
             />
-             <button disabled = {isInvalid} type="submit" className="btn btn-primary btn-b grey darken-1" style={{color:'#f2C75C'}}>Sign Up</button>
+             <button disabled = {isInvalid} type="submit"  className="btn btn-primary btn-b grey darken-1" style={{color:'#f2C75C'}}>Sign Up</button>
 
             {error && <p>{error.message}</p>}
           </form>
@@ -134,7 +134,8 @@ const Registration = () => {
                     <label htmlFor="email">Email:</label><br />
                     <input type="text" id="email" name="email" />
                     <br /><br /><br /><br />
-                    <input type="submit" value="Register" className="btn btn-primary btn-b grey darken-1" onClick={()=> history.push("/ConnectSpotify")} style={{color:'#f2C75C'}} ></input>
+                    <input type="submit" value="Register" className="btn btn-primary btn-b grey darken-1" 
+                    onClick={()=> history.push("/ConnectSpotify")} style={{color:'#f2C75C'}} ></input>
                 </form>
             </div>
         { <button onClick={submitForm()}>Test Button</button> }
