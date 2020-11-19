@@ -36,7 +36,7 @@ function App()
       <Route path="/MyData" component={PrivateLayout} />
       <Route path="/MyAccount" component={PrivateLayout} />
       <Route path="/LogOut" component={PrivateLayout} />
-      <Route exact path='/MainPage' component={PrivateLayout} />
+      <Route exact path='/Overview' component={PrivateLayout} />
 
       <Route path="/" component={PublicLayout} />
     

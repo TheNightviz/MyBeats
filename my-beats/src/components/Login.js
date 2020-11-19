@@ -3,7 +3,7 @@ import { withFirebase } from './Firebase';
 // import { Form} from "react-bootstrap";
 import Navbar from './Navbar';
 import BottomFooter from './BottomFooter';
-
+import history from "../history";
 
 const SignInPage = () => (
   <div class='pageContainer'>
@@ -33,7 +33,7 @@ class SignInFormBase extends Component {
       .doSignInWithEmailAndPassword(email, password)
       .then(() => {
         this.setState({ ...INITIAL_STATE });
-        //this.props.history.push(ROUTES.HOME);       <== add history push here
+        history.push("/Overview");
       })
       .catch(error => {
         this.setState({ error });
