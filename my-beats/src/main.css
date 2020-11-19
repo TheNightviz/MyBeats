@@ -8,11 +8,6 @@
   width: 500px;
 }
 
-/* this is just a test */
-h1 {
-  color: blue;
-}
-
 .pageContainer {
   position: relative;
   min-height: 100vh;
