@@ -24,8 +24,10 @@ const Home = () => {
               <img class='landingIcons' src='/Photos/spotifyicon.png' alt='Spotify'></img>
               <img class='landingIcons' src='/Photos/soundcloudicon.png' alt='Soundcloud'></img>
               <img class='landingIcons' src='/Photos/applemusicicon.png' alt='Apple Music'></img>
-              <p class='landingSubtext'>Find data on all your beats, across all platforms. Sign up for free today and start seeing your beats.</p>
+              <p class='landingSubtext'>Find data on all your beats, across all platforms.
+                 Sign up for free today and start seeing your beats. <a id='regArrow' href="/SignUpPage">></a></p>
             </div>
+            <br />
 
        </div>
 

@@ -6,7 +6,7 @@ const BottomFooter = () => {
           <h6 style={{
             position: 'absolute',
             bottom: '0',
-            background: 'black',
+            background: 'rgb(33,33,33, 1)',
             padding: '0.625em',
             margin: '0',
             width: '100%',
