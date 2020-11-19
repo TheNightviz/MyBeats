@@ -33,7 +33,7 @@ class SignInFormBase extends Component {
       .doSignInWithEmailAndPassword(email, password)
       .then(() => {
         this.setState({ ...INITIAL_STATE });
-        history.push("/Overview");
+        history.push("/OverView");
       })
       .catch(error => {
         this.setState({ error });
