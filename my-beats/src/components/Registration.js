@@ -5,6 +5,7 @@ import {getLogin} from '../userAuth';
 import { useHistory } from 'react-router-dom';
 import Navbar from './Navbar';
 import BottomFooter from './BottomFooter';
+import history from "../history";
 
 
 const SignUpPage = () => (
@@ -37,6 +38,7 @@ class SignUpFormBase extends Component{
           .doCreateUserWithEmailAndPassword(email, passwordOne)
           .then(authUser => {
             this.setState({ ...INITIAL_STATE });
+            history.push("/OverView");
           })
           .catch(error => {
             this.setState({ error });
