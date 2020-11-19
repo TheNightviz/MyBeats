@@ -38,3 +38,11 @@
    margin: 20px;
    height: auto;
 }
+
+#regArrow {
+   color: #f2C75C;
+}
+
+#regArrow:hover {
+   color: rgb(33,33,33);
+}
