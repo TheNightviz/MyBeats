@@ -3,7 +3,7 @@ import UserNav from './UserNav';
 import BottomFooter from './BottomFooter';
 
 
-const Overview = () =>
+const MainPage = () =>
 {
        return( <div class='pageContainer'>
            <UserNav />
@@ -14,4 +14,4 @@ const Overview = () =>
 
 }
 
-export default Overview;
+export default MainPage;
