@@ -1,5 +1,5 @@
 import React from 'react'
-import '../main.css'
+import '../../main.css'
 
 
  // I've decided to go with a class declaration because this page requires multiple nested functions.

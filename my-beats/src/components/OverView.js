@@ -8,7 +8,7 @@ const Overview = () =>
        return( <div class='pageContainer'>
            <UserNav />
 
-           <h1>test</h1>
+           <h1>You have not connected any accounts. Connect with Spotify below:</h1>
            <BottomFooter />
        </div>)
 

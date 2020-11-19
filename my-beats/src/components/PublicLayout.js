@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom'
 import Home from '../components/Home'
 import Registration from '../components/Registration'
 import Login from '../components/Login'
-import ConnectSpotify from '../components/ConnectSpotify'
+import ConnectSpotify from '../components/Spotify/ConnectSpotify'
 
 
 class PublicLayout extends Component {
