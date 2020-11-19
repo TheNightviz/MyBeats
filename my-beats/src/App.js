@@ -18,16 +18,7 @@ function App() {
   return (
     <Router history={history}>
       <div className="App">
-        {/* <Navbar />      
-          <Route exact path='/' component={Home} />
-          <Route exact path='/SignUpPage' component={Registration} />
-          <Route exact path='/Login' component={Login} />
-          <Route exact path='/ConnectSpotify' component={ConnectSpotify} />
-        
-          <Route exact path='/MyData' component={MyData} />
-          <Route exact path='/MyAccount' component={MyAccount} />
-          <Route exact path='/Logout' component={LogOut} />
-          <Route exact path='/MainPage' component={MainPage} /> */}
+      
 
         <Route path="/MyData" component={PrivateLayout} />
         <Route path="/MyAccount" component={PrivateLayout} />
