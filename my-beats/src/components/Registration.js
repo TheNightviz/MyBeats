@@ -1,8 +1,7 @@
 import { wait } from '@testing-library/react';
 import React, { Component } from 'react'
 import { withFirebase } from './Firebase';
-import {getLogin} from '../userAuth';
-import { useHistory } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
 import Navbar from './Navbar';
 import BottomFooter from './BottomFooter';
 import history from "../history";
