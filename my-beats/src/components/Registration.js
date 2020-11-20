@@ -70,7 +70,7 @@ class SignUpFormBase extends Component{
             <h1 style={{textAlign:'center', color:'black', fontSize:'30px', marginTop:'5%'}}>See your Beats</h1>
             <h6 style={{textAlign:'center', color:'black', fontSize:'20px', marginBottom:'-8%'}}>Sign-up to start viewing your music data</h6>
 
-            <div className="login-form" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '75vh' }}>
+            <div className="login-form" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '75vh', padding:'60px'}}>
 
           <form onSubmit={this.onSubmit}>
             <input
