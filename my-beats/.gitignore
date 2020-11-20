@@ -21,6 +21,3 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
-#auth_server DONT SHARE OUR CLIENT ID AGAIN AUSDHASASDA
-auth_server.sh
