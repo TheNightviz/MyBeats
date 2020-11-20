@@ -1,8 +1,4 @@
-
-
-
-
-import React from 'react'
+import React from 'react';
 
 const UserNav = () => {
     return (
@@ -12,7 +8,7 @@ const UserNav = () => {
             <div className="container">
                 <a href="/" classname="left">
                       <img src = '/Photos/mbLogoFinal.png' style={{padding:'5px', width:'33px', height:'auto'}}></img>
-                      <h2 className="brand-logo"style={{textAlign:'left', color:'#f2C75C', fontSize:'55px', fontFamily:'Impact, Charcoal, sans-serif'}}>MyBeats</h2>
+                      <img src = '/Photos/textlogotrans.png' style={{padding:'5px', width:'220px', height:'auto'}}></img>
                 </a>
                 <ul className="right">
                     <li><a href="/"style={{color:'#f2C75C', fontSize:'15px',}}>Home</a></li>
