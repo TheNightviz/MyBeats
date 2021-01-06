@@ -1,17 +1,17 @@
 import React from 'react';
 import UserNav from './UserNav';
 import BottomFooter from './BottomFooter';
-import ConnectAlert from './ConnectAlert';
 
 
-const OverView = () =>
+const MainPage = () =>
 {
        return( <div class='pageContainer'>
            <UserNav />
-           <ConnectAlert />
+
+           <h1>You have not connected any accounts. Connect with Spotify below:</h1>
            <BottomFooter />
        </div>)
 
 }
 
-export default OverView;
+export default MainPage;

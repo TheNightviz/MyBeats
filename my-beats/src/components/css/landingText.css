@@ -23,7 +23,7 @@
 }
 
 #landingIconContainer {
-   align-items: center;
+   text-align: center;
    justify-content: center;
    position: relative;
    margin-top: 0px;
@@ -37,4 +37,12 @@
    width: 20vw;
    margin: 20px;
    height: auto;
+}
+
+#regLinkText {
+   color: rgb(33,33,33);
+}
+
+#regLinkText:hover {
+   color: rgb(33,33,33, 0.6);
 }
