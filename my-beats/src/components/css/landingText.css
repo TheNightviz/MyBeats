@@ -23,7 +23,7 @@
 }
 
 #landingIconContainer {
-   align-items: center;
+   text-align: center;
    justify-content: center;
    position: relative;
    margin-top: 0px;
