@@ -6,9 +6,9 @@ const UserNav = () => {
 
         <nav className="nav-wrapper grey darken-4">
             <div className="container">
-                <a href="/" classname="left">
-                      <img src = '/Photos/mbLogoFinal.png' style={{padding:'5px', width:'33px', height:'auto'}}></img>
-                      <img src = '/Photos/textlogotrans.png' style={{padding:'5px', width:'220px', height:'auto'}}></img>
+                <a href="/" className="left">
+                      <img src = '/Photos/mbLogoFinal.png' alt="" style={{padding:'5px', width:'33px', height:'auto'}}></img>
+                      <img src = '/Photos/textlogotrans.png' alt="" style={{padding:'5px', width:'220px', height:'auto'}}></img>
                 </a>
                 <ul className="right">
                     <li><a href="/"style={{color:'#f2C75C', fontSize:'15px',}}>Home</a></li>
