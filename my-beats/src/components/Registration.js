@@ -1,4 +1,4 @@
-import { wait } from '@testing-library/react';
+//import { wait } from '@testing-library/react';
 import React, { Component } from 'react'
 import { withFirebase } from './Firebase';
 // import { useHistory } from 'react-router-dom';
@@ -67,7 +67,7 @@ class SignUpFormBase extends Component{
         console.log(passwordOne === '');
         return (
           <div>
-            <h1 style={{textAlign:'center', color:'black', fontSize:'30px', marginTop:'5%'}}>See your Beats</h1>
+            <h1 className = 'pageContainer'style={{textAlign:'center', color:'black', fontSize:'30px', marginTop:'5%'}}>See your Beats</h1>
             <h6 style={{textAlign:'center', color:'black', fontSize:'20px', marginBottom:'-8%'}}>Sign-up to start viewing your music data</h6>
 
             <div className="login-form" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '75vh', padding:'60px'}}>
@@ -114,6 +114,9 @@ class SignUpFormBase extends Component{
 const SignUpForm = withFirebase(SignUpFormBase);
 export default SignUpPage;
 export { SignUpForm };
+
+module.exports = INITIAL_STATE;
+
 /*
 const Registration = () => {
     const history = useHistory();

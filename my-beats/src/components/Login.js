@@ -53,7 +53,7 @@ class SignInFormBase extends Component {
 
     return (
       <div>
-      <h1 style={{textAlign:'center', color:'black', fontSize:'30px', marginTop:'5%'}}>See your Beats</h1>
+      <h1 className='pageContainer' style={{textAlign:'center', color:'black', fontSize:'30px', marginTop:'5%'}}>See your Beats</h1>
       <h6 style={{textAlign:'center', color:'black', fontSize:'20px', marginBottom:'-8%'}}>Log-in to access your account below</h6>
 
       <div className="login-form" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '75vh', padding:'20px' }}>
@@ -95,6 +95,8 @@ export { SignInForm };
 
 module.exports = myTest;
 */
+
+//comment out the line of code below when using npm start
 module.exports = INITIAL_STATE;
 
 /*

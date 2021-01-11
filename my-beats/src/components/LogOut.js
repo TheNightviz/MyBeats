@@ -6,7 +6,7 @@ import BottomFooter from './BottomFooter';
 const LogOut = () =>
 {
        return(
-       <div class='pageContainer'>
+       <div className='pageContainer'>
               <Navbar />
            <h1>You have signed out.</h1>
            <BottomFooter />
