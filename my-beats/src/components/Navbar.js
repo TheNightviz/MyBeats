@@ -5,7 +5,7 @@ const Navbar = () => {
 
         <nav className="nav-wrapper grey darken-4" style={{position:'relative'}}>
             <div className="container">
-                <a href="/" classname="left">
+                <a href="/" className="left">
                       <img src = '/Photos/mbLogoFinal.png' alt="" style={{padding:'5px', width:'33px', height:'auto'}}></img>
                       <img src = '/Photos/textlogotrans.png' alt="" style={{padding:'5px', width:'220px', height:'auto'}}></img>
                 </a>

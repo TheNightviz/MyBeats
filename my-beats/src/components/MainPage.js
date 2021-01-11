@@ -5,7 +5,7 @@ import BottomFooter from './BottomFooter';
 
 const MainPage = () =>
 {
-       return( <div class='pageContainer'>
+       return( <div className='pageContainer'>
            <UserNav />
 
            <h1>You have not connected any accounts. Connect with Spotify below:</h1>
