@@ -115,7 +115,7 @@ const SignUpForm = withFirebase(SignUpFormBase);
 export default SignUpPage;
 export { SignUpForm };
 
-module.exports = INITIAL_STATE;
+//module.exports = INITIAL_STATE;
 
 /*
 const Registration = () => {

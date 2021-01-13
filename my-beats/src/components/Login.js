@@ -97,7 +97,7 @@ module.exports = myTest;
 */
 
 //comment out the line of code below when using npm start
-module.exports = INITIAL_STATE;
+// module.exports = INITIAL_STATE;
 
 /*
 const Login = () => {
