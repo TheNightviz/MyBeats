@@ -84,7 +84,7 @@ class SignInFormBase extends Component {
 const SignInForm = withFirebase(SignInFormBase);
 export default SignInPage;
 
-export { SignInForm };
+export { SignInForm, INITIAL_STATE };
 
 /* THIS IS A SIMPLE EXAMPLE FUNCTION USED TO FIGURE OUT THE TESTING FRAMEWORK; FEEL FREE TO DELETE
    function myTest(a) {
@@ -95,9 +95,7 @@ export { SignInForm };
 
 module.exports = myTest;
 */
-
-//comment out the line of code below when using npm start
-// module.exports = INITIAL_STATE;
+//module.exports = INITIAL_STATE;
 
 /*
 const Login = () => {
