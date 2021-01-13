@@ -1,6 +1,7 @@
 import React from 'react';
+/*
 import AlertStyle from './css/alert.css';
-
+*/
 const ConnectAlert = () => {
     return (
        <div class='alertContainer'>
