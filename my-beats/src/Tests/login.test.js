@@ -12,13 +12,9 @@ import Login from "../components/Login";
 
 
 
-<<<<<<< HEAD
-const INITIAL_STATE = require('../components/Login.js');
-const INITIAL_STATE2 = require('../components/Registration.js');
-=======
+
 import {INITIAL_STATE} from '../components/Login.js';
 import {REG_INITIAL_STATE} from '../components/Registration.js';
->>>>>>> Shemely
 
 
 test('test renders h1 div in MyAccount', () => {
@@ -71,35 +67,30 @@ test('test renders h1 div in MyData', () => {
 test('test renders userNav Home button', () => {
     const root = document.createElement('container');
     ReactDOM.render(<UserNav />, root);
-  
+
     expect(root.querySelector("li").textContent).toBe("Home");
-    
+
   })
 
 
-  
+
   test('test renders BottomFooter text', () => {
     const root = document.createElement('div');
     ReactDOM.render(<BottomFooter />, root);
-  
+
     expect(root.querySelector("h6").textContent).toBe("Copyright © 2020 BoomerBeats");
-    
+
   })
 
 
   test('test renders Navbar ', () => {
     const root = document.createElement('container');
     ReactDOM.render(<Navbar />, root);
-  
-    expect(root.querySelector("li").textContent).toBe("Create an Account");   
 
-    
+    expect(root.querySelector("li").textContent).toBe("Create an Account");
+
+
   })
-  
-<<<<<<< HEAD
-  
-=======
->>>>>>> Shemely
 
 test('tests initialization of login state', () => {
   expect(INITIAL_STATE).toStrictEqual({
@@ -110,20 +101,11 @@ test('tests initialization of login state', () => {
 });
 
 test('tests initialization of Registration state', () => {
-<<<<<<< HEAD
-    expect(INITIAL_STATE2).toStrictEqual({
-=======
     expect(REG_INITIAL_STATE).toStrictEqual({
->>>>>>> Shemely
         username: '',
         email: '',
       passwordOne: '',
       passwordTwo: '',
       error: null
     });
-<<<<<<< HEAD
-  });
-=======
-  });
-
->>>>>>> Shemely
+});

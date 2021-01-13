@@ -113,14 +113,7 @@ class SignUpFormBase extends Component{
 
 const SignUpForm = withFirebase(SignUpFormBase);
 export default SignUpPage;
-<<<<<<< HEAD
-export { SignUpForm };
-
-module.exports = INITIAL_STATE;
-
-=======
 export { SignUpForm,  REG_INITIAL_STATE};
->>>>>>> Shemely
 /*
 const Registration = () => {
     const history = useHistory();
