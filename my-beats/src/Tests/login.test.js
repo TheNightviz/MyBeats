@@ -12,8 +12,9 @@ import Login from "../components/Login";
 
 
 
-const INITIAL_STATE = require('../components/Login.js');
-const INITIAL_STATE2 = require('../components/Registration.js');
+import {INITIAL_STATE} from '../components/Login.js';
+import {REG_INITIAL_STATE} from '../components/Registration.js';
+
 
 test('test renders h1 div in MyAccount', () => {
     //rendering "pageContainer" div from MyAccount
@@ -90,7 +91,6 @@ test('test renders userNav Home button', () => {
     
   })
   
-  
 
 test('tests initialization of login state', () => {
   expect(INITIAL_STATE).toStrictEqual({
@@ -101,7 +101,7 @@ test('tests initialization of login state', () => {
 });
 
 test('tests initialization of Registration state', () => {
-    expect(INITIAL_STATE2).toStrictEqual({
+    expect(REG_INITIAL_STATE).toStrictEqual({
         username: '',
         email: '',
       passwordOne: '',

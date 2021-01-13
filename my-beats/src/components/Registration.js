@@ -15,7 +15,7 @@ const SignUpPage = () => (
     </div>
   );
 
-  const INITIAL_STATE = {
+  const REG_INITIAL_STATE = {
     username: '',
     email: '',
     passwordOne: '',
@@ -27,7 +27,7 @@ const SignUpPage = () => (
 class SignUpFormBase extends Component{
     constructor(props) {
         super(props);
-        this.state = {...INITIAL_STATE};
+        this.state = {...REG_INITIAL_STATE};
         //add history push here?
     }
     onSubmit = event => {
@@ -36,7 +36,7 @@ class SignUpFormBase extends Component{
         this.props.firebase
           .doCreateUserWithEmailAndPassword(email, passwordOne)
           .then(authUser => {
-            this.setState({ ...INITIAL_STATE });
+            this.setState({ ...REG_INITIAL_STATE });
             history.push("/OverView");
           })
           .catch(error => {
@@ -113,7 +113,7 @@ class SignUpFormBase extends Component{
 
 const SignUpForm = withFirebase(SignUpFormBase);
 export default SignUpPage;
-export { SignUpForm };
+export { SignUpForm,  REG_INITIAL_STATE};
 /*
 const Registration = () => {
     const history = useHistory();
