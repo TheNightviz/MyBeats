@@ -1,4 +1,4 @@
-import { wait } from '@testing-library/react';
+//import { wait } from '@testing-library/react';
 import React, { Component } from 'react'
 import { withFirebase } from './Firebase';
 // import { useHistory } from 'react-router-dom';
@@ -15,7 +15,7 @@ const SignUpPage = () => (
     </div>
   );
 
-  const INITIAL_STATE = {
+  const REG_INITIAL_STATE = {
     username: '',
     email: '',
     passwordOne: '',
@@ -27,7 +27,7 @@ const SignUpPage = () => (
 class SignUpFormBase extends Component{
     constructor(props) {
         super(props);
-        this.state = {...INITIAL_STATE};
+        this.state = {...REG_INITIAL_STATE};
         //add history push here?
     }
     onSubmit = event => {
@@ -36,7 +36,7 @@ class SignUpFormBase extends Component{
         this.props.firebase
           .doCreateUserWithEmailAndPassword(email, passwordOne)
           .then(authUser => {
-            this.setState({ ...INITIAL_STATE });
+            this.setState({ ...REG_INITIAL_STATE });
             history.push("/OverView");
           })
           .catch(error => {
@@ -67,7 +67,7 @@ class SignUpFormBase extends Component{
         console.log(passwordOne === '');
         return (
           <div>
-            <h1 style={{textAlign:'center', color:'black', fontSize:'30px', marginTop:'5%'}}>See your Beats</h1>
+            <h1 className = 'pageContainer'style={{textAlign:'center', color:'black', fontSize:'30px', marginTop:'5%'}}>See your Beats</h1>
             <h6 style={{textAlign:'center', color:'black', fontSize:'20px', marginBottom:'-8%'}}>Sign-up to start viewing your music data</h6>
 
             <div className="login-form" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '75vh', padding:'60px'}}>
@@ -113,7 +113,14 @@ class SignUpFormBase extends Component{
 
 const SignUpForm = withFirebase(SignUpFormBase);
 export default SignUpPage;
+<<<<<<< HEAD
 export { SignUpForm };
+
+module.exports = INITIAL_STATE;
+
+=======
+export { SignUpForm,  REG_INITIAL_STATE};
+>>>>>>> Shemely
 /*
 const Registration = () => {
     const history = useHistory();
