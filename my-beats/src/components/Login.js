@@ -53,7 +53,7 @@ class SignInFormBase extends Component {
 
     return (
       <div>
-      <h1 className='pageContainer' style={{textAlign:'center', color:'black', fontSize:'30px', marginTop:'5%'}}>See your Beats</h1>
+      <h1 style={{textAlign:'center', color:'black', fontSize:'30px', marginTop:'5%'}}>See your Beats</h1>
       <h6 style={{textAlign:'center', color:'black', fontSize:'20px', marginBottom:'-8%'}}>Log-in to access your account below</h6>
 
       <div className="login-form" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '75vh', padding:'20px' }}>
@@ -84,18 +84,7 @@ class SignInFormBase extends Component {
 const SignInForm = withFirebase(SignInFormBase);
 export default SignInPage;
 
-export { SignInForm, INITIAL_STATE };
-
-/* THIS IS A SIMPLE EXAMPLE FUNCTION USED TO FIGURE OUT THE TESTING FRAMEWORK; FEEL FREE TO DELETE
-   function myTest(a) {
-   var str = "123";
-   var res = a.concat(str);
-   return res;
-}
-
-module.exports = myTest;
-*/
-//module.exports = INITIAL_STATE;
+export { SignInForm };
 
 /*
 const Login = () => {
