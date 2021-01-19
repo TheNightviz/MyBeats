@@ -5,7 +5,7 @@ import BottomFooter from './BottomFooter';
 const MyData = () =>
 {
        return(
-       <div className = 'pageContainer'>
+       <div class = 'pageContainer'>
            <UserNav />
            <h1>This is MyData</h1>
 

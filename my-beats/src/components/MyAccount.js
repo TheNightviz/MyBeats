@@ -5,7 +5,7 @@ import BottomFooter from './BottomFooter';
 const MyAccount = () =>
 {
        return(
-       <div className='pageContainer'>
+       <div class='pageContainer'>
            <UserNav />
            <h1>This is MyAccount</h1>
            <BottomFooter />
