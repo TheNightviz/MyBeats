@@ -1,11 +1,11 @@
 import React from 'react';
-import landingText from './css/landingText.css';
+// import landingText from './css/landingText.css';
 
 const Home = () => {
     return (
 
        <div>
-           <p class='landingText'>
+           <p className='landingText'>
                Music is more than just what flows through your ears.<br />
                <br />
                Music is a full body experience both on the dance floor and in the studio.<br />
@@ -20,11 +20,11 @@ const Home = () => {
                <br />
            </p>
             <div id='landingIconContainer'>
-              <p class='landingSubtext'>All your beats, all in one place.</p>
-              <img class='landingIcons' src='/Photos/spotifyicon.png' alt='Spotify'></img>
-              <img class='landingIcons' src='/Photos/soundcloudicon.png' alt='Soundcloud'></img>
-              <img class='landingIcons' src='/Photos/applemusicicon.png' alt='Apple Music'></img>
-              <p class='landingSubtext'>Find data on all your beats, across all platforms.
+              <p className='landingSubtext'>All your beats, all in one place.</p>
+              <img className='landingIcons' src='/Photos/spotifyicon.png' alt='Spotify'></img>
+              <img className='landingIcons' src='/Photos/soundcloudicon.png' alt='Soundcloud'></img>
+              <img className='landingIcons' src='/Photos/applemusicicon.png' alt='Apple Music'></img>
+              <p className='landingSubtext'>Find data on all your beats, across all platforms.
                   <a id='regLinkText' href="/SignUpPage"> Sign up for free today and start seeing your beats.</a></p>
             </div>
             <br />
