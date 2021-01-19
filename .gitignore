@@ -1,2 +1,0 @@
-#make sure not to leak the client secrets!
-auth_server.sh
