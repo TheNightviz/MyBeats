@@ -84,18 +84,7 @@ class SignInFormBase extends Component {
 const SignInForm = withFirebase(SignInFormBase);
 export default SignInPage;
 
-export { SignInForm, INITIAL_STATE };
-
-/* THIS IS A SIMPLE EXAMPLE FUNCTION USED TO FIGURE OUT THE TESTING FRAMEWORK; FEEL FREE TO DELETE
-   function myTest(a) {
-   var str = "123";
-   var res = a.concat(str);
-   return res;
-}
-
-module.exports = myTest;
-*/
-//module.exports = INITIAL_STATE;
+export { SignInForm };
 
 /*
 const Login = () => {
