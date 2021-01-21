@@ -69,3 +69,5 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 
 ## Spotify OAuth Tutorial (YouTube)
 https://www.youtube.com/watch?v=f5OLDvwP-Ug
+
+https://developer.spotify.com/documentation/web-api/reference/#endpoint-get-users-top-artists-and-tracks
