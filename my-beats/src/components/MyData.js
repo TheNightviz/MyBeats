@@ -1,50 +1,33 @@
 import React from 'react';
 import UserNav from './UserNav';
 import BottomFooter from './BottomFooter';
-import {Bar} from 'react-chartjs-2'
+import MyDataText from './MyDataText';
+import { Bar } from "react-chartjs-2";
+
+  const data = {
+    labels: ["Rock", "Blues", "Punk", "Funk", "House", "Electronic", "Other"],
+    datasets: [
+      {
+        label: "Genres",
+        data: [65, 42, 38, 32, 28, 15, 5],
+        fill: true,
+        backgroundColor: "#f2C75C",
+        borderColor: "rgba(33,33,33, 1)"
+      }
+    ]
+  };
 
 const MyData = () =>
 {
        return(
        <div class = 'pageContainer'>
            <UserNav />
-           <h1>This is MyData</h1>
-
-            <Bar 
-                data={{
-                    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-
-                    datasets: [{
-                        label: '# of Votes',
-                        data: [12, 19, 3, 5, 2, 3],
-                        backgroundColor: [
-                            'rgba(255, 99, 132, 0.2)',
-                            'rgba(54, 162, 235, 0.2)',
-                            'rgba(255, 206, 86, 0.2)',
-                            'rgba(75, 192, 192, 0.2)',
-                            'rgba(153, 102, 255, 0.2)',
-                            'rgba(255, 159, 64, 0.2)'
-                        ],
-                        borderColor: [
-                            'rgba(255, 99, 132, 1)',
-                            'rgba(54, 162, 235, 1)',
-                            'rgba(255, 206, 86, 1)',
-                            'rgba(75, 192, 192, 1)',
-                            'rgba(153, 102, 255, 1)',
-                            'rgba(255, 159, 64, 1)'
-                        ],
-                        borderWidth: 1
-                    }]
-
-
-                }}
-                height={400}
-                width={600}
+           <MyDataText />
+           <Bar 
+              data={data}
             />
-
            <BottomFooter />
        </div>)
-
 }
 
 export default MyData;
