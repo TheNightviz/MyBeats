@@ -4,9 +4,11 @@ let querystring = require('querystring')
 
 let app = express()
 
-let redirect_uri = 
-  process.env.REDIRECT_URI || 
+let redirect_uri =
+  process.env.REDIRECT_URI ||
   'http://localhost:8888/callback'
+
+var isLoggedIn = false;
 
 app.get('/login', function(req, res) {
   res.redirect('https://accounts.spotify.com/authorize?' +
@@ -38,8 +40,14 @@ app.get('/callback', function(req, res) {
     var access_token = body.access_token
     let uri = process.env.FRONTEND_URI || 'http://localhost:3000/OverView'
     res.redirect(uri + '?access_token=' + access_token)
+
+   if(access_token != null) {
+      isLoggedIn = true;
+   }
   })
 })
+
+export {isLoggedIn}
 
 let port = process.env.PORT || 8888
 console.log(`Listening on port ${port}. Go /login to initiate authentication flow.`)
