@@ -18,12 +18,12 @@ function App() {
   return (
     <Router history={history}>
       <div className="App">
-        {/* <Navbar />      
+        {/* <Navbar />
           <Route exact path='/' component={Home} />
           <Route exact path='/SignUpPage' component={Registration} />
           <Route exact path='/Login' component={Login} />
           <Route exact path='/ConnectSpotify' component={ConnectSpotify} />
-       
+
           <Route exact path='/MyData' component={MyData} />
           <Route exact path='/MyAccount' component={MyAccount} />
           <Route exact path='/Logout' component={LogOut} />
@@ -33,7 +33,6 @@ function App() {
         <Route path="/MyAccount" component={PrivateLayout} />
         <Route path="/LogOut" component={PrivateLayout} />
         <Route exact path="/OverView" component={OverView} />
-
         <Route path="/" component={PublicLayout} />
       </div>
     </Router>
