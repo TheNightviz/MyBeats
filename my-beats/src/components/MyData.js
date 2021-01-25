@@ -14,9 +14,15 @@ import FavArtistText from './FavArtistText';
         fill: true,
         backgroundColor: "#f2C75C",
         borderColor: "rgba(33,33,33, 1)"
+        
       }
-    ]
-  };
+    ],
+    layout: {
+      padding: {
+          
+          bottom: 1000
+      }
+  }};
 
 
   const artistData = {
@@ -46,6 +52,7 @@ const MyData = () =>
             <Bar
               data={artistData}
               />
+
            <BottomFooter />
        </div>)
 }
