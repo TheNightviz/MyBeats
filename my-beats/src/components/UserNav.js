@@ -11,7 +11,7 @@ const UserNav = () => {
                       <img src = '/Photos/textlogotrans.png' style={{padding:'5px', width:'220px', height:'auto'}}></img>
                 </a>
                 <ul className="right">
-                    <li><a href="/"style={{color:'#f2C75C', fontSize:'15px',}}>Home</a></li>
+                    <li><a href="/OverView"style={{color:'#f2C75C', fontSize:'15px',}}>MyOverview</a></li>
                     <li><a href="/Mydata"style={{color:'#f2C75C', fontSize:'15px',}}>MyData</a></li>
                     <li><a href="/MyAccount"style={{color:'#f2C75C', fontSize:'15px',}}>MyAccount</a></li>
                     <li><a href="/LogOut"style={{color:'#f2C75C', fontSize:'15px',}}>Logout</a></li>
