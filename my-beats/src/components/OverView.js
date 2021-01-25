@@ -7,6 +7,7 @@ import ConnectAlert from './ConnectAlert';
 
 const OverView = () =>
 {
+    
        return( <div class='pageContainer'>
            <UserNav />
            <ConnectAlert />
@@ -14,5 +15,15 @@ const OverView = () =>
        </div>)
 
 }
+
+// Grabs URL after 'OverView' and parses access token. Will return empty string if user not logged in
+function getAccessToken() {
+    var queryString = window.location.search;
+    console.log(queryString);
+    var accessToken = queryString.slice(14, queryString.length);
+    console.log(accessToken);
+}
+
+getAccessToken();
 
 export default OverView;
