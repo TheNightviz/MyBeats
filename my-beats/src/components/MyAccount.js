@@ -1,9 +1,13 @@
 import React from 'react';
 import UserNav from './UserNav';
 import BottomFooter from './BottomFooter';
+import { userAccessToken } from './OverView';
 
 const MyAccount = () =>
 {
+       console.log("UserAccessToken: ");
+       console.log(userAccessToken);
+       console.log("--Done logging--");
        return(
        <div class='pageContainer'>
            <UserNav />
