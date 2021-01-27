@@ -2,6 +2,7 @@ import React from 'react';
 import UserNav from './UserNav';
 import BottomFooter from './BottomFooter';
 import ConnectAlert from './ConnectAlert';
+import { get } from 'request';
 /*import {isLoggedIn} from './Spotify/server.js';*/
 
 
@@ -35,9 +36,29 @@ fetch(API_ENDPOINT)
 
 function fetchDataTest() {
     var accessToken = getAccessToken();
-
+    var testArtist = {
+        name: "Rex Orange County",
+        id: "7pbDxGE6nQSZVfiFdq9lOL"
+    };
+    var testArtist2 = {
+        name: "Kendrick Lamar",
+        id: "2YZyLoL8N0Wb9xBt1NhZWg"
+    };
+    var testArtist3 = {
+        name: "Dillon Francis",
+        id: "5R3Hr2cnCCjt220Jmt2xLf"
+    };
+    var testArtist4 = {
+        name: "Porter Robinson",
+        id: "3dz0NnIZhtKKeXZxLOxCam"
+    };
+    var testArtist5 = {
+        name: "Kanye West",
+        id: "5K4W6rqBFWDnAN6FQUkS6x"
+    };
+    var getRequest = 'https://api.spotify.com/v1/artists/' + testArtist4.id;
     // API endpoint
-    fetch('https://api.spotify.com/v1/me', {
+    fetch(getRequest, {
         headers: {'Authorization': 'Bearer ' + accessToken}
     }).then(response => response.json()).then((data) => {
         console.log(data);
