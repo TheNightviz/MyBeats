@@ -15,7 +15,7 @@ app.get('/login', function(req, res) {
     querystring.stringify({
       response_type: 'code',
       client_id: process.env.SPOTIFY_CLIENT_ID,
-      scope: 'user-read-private user-read-email',
+      scope: 'user-read-private user-read-email user-top-read',
       redirect_uri
     }))
 })
@@ -47,7 +47,6 @@ app.get('/callback', function(req, res) {
   })
 })
 
-export {isLoggedIn}
 
 let port = process.env.PORT || 8888
 console.log(`Listening on port ${port}. Go /login to initiate authentication flow.`)
