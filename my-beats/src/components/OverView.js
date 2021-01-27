@@ -2,19 +2,28 @@ import React from 'react';
 import UserNav from './UserNav';
 import BottomFooter from './BottomFooter';
 import ConnectAlert from './ConnectAlert';
+import OverViewData from './OverViewData';
 import { get } from 'request';
 /*import {isLoggedIn} from './Spotify/server.js';*/
 
 
 const OverView = () =>
 {
-    
+
        return( <div class='pageContainer'>
            <UserNav />
-           <ConnectAlert />
+           <ShowConnectAlert />
            <BottomFooter />
        </div>)
 
+}
+
+//Checks wether user is connected to Spotify using getAccessToken() to handle showing ConnectAlert
+function ShowConnectAlert() {
+    if (getAccessToken()) {
+       return <OverViewData />;
+    }
+    return <ConnectAlert />;
 }
 
 // Grabs URL after 'OverView' and parses access token. Will return empty string if user not logged in
@@ -26,9 +35,11 @@ function getAccessToken() {
     return accessToken;
 }
 
+export var userAccessToken = getAccessToken();
+
 fetchDataTest();
 
-/* DOCUMENTATION FOR GETTING DATA 
+/* DOCUMENTATION FOR GETTING DATA
 
 fetch(API_ENDPOINT)
 
