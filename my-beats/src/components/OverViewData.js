@@ -56,13 +56,10 @@ var userAccessToken = localStorage.getItem('spotifyToken');
 
    
     var objTest = {}
-    (getArtists().then((value) => objTest = { ... value}));
-
-
-    var test1 = getArtists().then;
+    //(getArtists().then((value) => objTest = { ... value}));
 
       const artistData = {
-        labels: [objTest.items["0"].name],
+        labels: ["test"],
         datasets: [
           {
             label: "Artist",
