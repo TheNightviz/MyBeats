@@ -32,6 +32,7 @@ function getAccessToken() {
     console.log(queryString);
     var accessToken = queryString.slice(14, queryString.length);
     console.log(accessToken);
+    localStorage.setItem('spotifyToken', accessToken);
     return accessToken;
 }
 
