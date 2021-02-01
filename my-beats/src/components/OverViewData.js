@@ -1,5 +1,5 @@
 import React from 'react';
-import { userAccessToken } from './OverView';
+
 
 const OverViewData = () => {
     return (
@@ -12,6 +12,7 @@ const OverViewData = () => {
 //Gets users top artists
 function getTopArtists() {
     console.log("USER ACT:");
+    var userAccessToken = localStorage.getItem('spotifyToken');
     console.log(userAccessToken);
     var getRequest = 'https://api.spotify.com/v1/me/top/artists';
     // API endpoint
