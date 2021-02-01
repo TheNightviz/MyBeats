@@ -1,12 +1,12 @@
 import React from 'react';
 import { Bar } from "react-chartjs-2";
 import FavArtistText from './FavArtistText';
+import BottomFooter from './BottomFooter';
 
 
 const OverViewData = () => {
     return (
        <div>
-           <h1> This is MyOverViewData </h1>
            <FavArtistText />
             <Bar
               data={artistData}
@@ -50,25 +50,20 @@ var userAccessToken = localStorage.getItem('spotifyToken');
     const getArtists = async () => {
        const myArtists = await artists;
        console.log(await myArtists);
-       var test2 = await artists;
-       return test2;
+       return await myArtists;
     }
 
-   
-    var objTest = {}
-    //(getArtists().then((value) => objTest = { ... value}));
-
-      const artistData = {
-        labels: ["test"],
+    const artistData = {
+        labels: ["Queens of the Stone Age", "Joywave", "Hozier", "Taylor Swift", "The Chats", "Florence + The Machine", "The Oh Hellos", "Sabaton", "Marcin Przybyłowicz", "Best Frenz", "Them Crooked Vultures", "Wolfmother", "Eagles Of Death Metal", "Red Hot Chili Peppers", "Kyuss"],
         datasets: [
-          {
+        {
             label: "Artist",
-            data: [57, 51, 34, 37, 33, 24, 22],
+            data: [16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1],
             fill: true,
             backgroundColor: "#f2C75C",
             borderColor: "rgba(33,33,33, 1)"
-          }
+        }
         ]
-      };
-      
+    };
+        
 export default OverViewData;
