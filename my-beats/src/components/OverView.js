@@ -18,16 +18,14 @@ const OverView = () =>
 
 }
 
-//Checks wether user is connected to Spotify using getAccessToken() to handle showing ConnectAlert
+//Checks if user is connected to Spotify by using localStorage to handle showing ConnectAlert
 function ShowConnectAlert() {
     if(localStorage.getItem('spotifyToken') === ''){
-        getAccessToken();
-    }
-    if (localStorage.getItem('spotifyToken') === '') {
-        return <ConnectAlert />;
-
-    }
-    return <OverViewData />;
+        if (getAccessToken() === '') {
+            return <ConnectAlert />;
+        }
+    }    
+    return <OverViewData />; 
 }
 
 // Grabs URL after 'OverView' and parses access token. Will return empty string if user not logged in
