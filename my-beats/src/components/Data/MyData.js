@@ -1,6 +1,6 @@
 import React from 'react';
-import UserNav from './UserNav';
-import BottomFooter from './BottomFooter';
+import UserNav from '../UserNav';
+import BottomFooter from '../BottomFooter';
 import MyDataText from './MyDataText';
 import { Bar } from "react-chartjs-2";
 import FavArtistText from './FavArtistText';

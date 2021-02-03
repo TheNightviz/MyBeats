@@ -1,5 +1,5 @@
 import React from 'react';
-import myData from './css/myData.css';
+import myData from '../../css/myData.css';
 
 const FavArtistText = () => {
     return (

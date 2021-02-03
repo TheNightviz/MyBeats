@@ -1,9 +1,9 @@
 import React from 'react'
 import HomeBackGround from './HomeBackground';
-import BottomFooter from './BottomFooter';
-import Navbar from './Navbar';
+import BottomFooter from '../BottomFooter';
+import Navbar from '../Navbar';
 import HomeText from './HomeText';
-import mainStyle from '../main.css';
+import mainStyle from '../../css/main.css';
 
 const Home = () => {
     return (
