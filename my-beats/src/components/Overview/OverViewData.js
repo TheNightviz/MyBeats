@@ -1,10 +1,21 @@
 import React from 'react';
+import YourStatsEntity      from './YourStatsEntity.js';
+import RecentlyPlayedEntity from './RecentlyPlayedEntity.js';
+import MusicDataEntity      from './MusicDataEntity.js';
+import MoreMusicDataEntity  from './MoreMusicDataEntity.js';
+import overviewStyle from '../../css/overview.css';
 
 
 const OverViewData = () => {
     return (
-       <div>
-           <h1> This is MyOverViewData </h1>
+       <div class="overviewPageContainer">
+           <h1 class="overviewHeader"> Welcome, userName123! </h1>
+           <h5 class="overviewHeader" id="headersubtext"> Your daily overview is ready.
+            You can also check out more stats on the <a id="mydatalink" href='/MyData'>MyData page</a>.</h5>
+           <YourStatsEntity />
+           <RecentlyPlayedEntity />
+           <MusicDataEntity />
+           <MoreMusicDataEntity />
        </div>
     );
 }
@@ -23,7 +34,7 @@ function getTopArtists() {
         console.log(data);
         return data;
     })
-   
+
     return myTopArtists;
 }
 

@@ -1,0 +1,35 @@
+.overviewPageContainer {
+  position: relative;
+  background-color: #41444B;
+  min-height: 650px;
+  height: 100vw;
+  width: 101vw;
+}
+
+.overviewHeader {
+  color: #F2C75C;
+  text-align: center;
+  padding-top: 10px;
+}
+
+#headersubtext {
+  color: #212121;
+}
+
+#mydatalink {
+  color: #212121;
+}
+
+#mydatalink:hover {
+  color: #C4C4C4;
+}
+
+.entityContainer {
+  background-color: #f6f4e6;
+  border-radius: 10px;
+  width: 400px;
+  height: 250px;
+  padding: 10px;
+  margin: 50px;
+  margin-left: 100px;
+}
