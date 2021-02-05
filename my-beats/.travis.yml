@@ -1,0 +1,17 @@
+language: node_js
+node_js:
+- 12.19.0
+cache: npm
+
+install:
+- npm install
+
+script:
+- npm start
+
+deploy:
+ provider: pages
+ skip-cleanup: true
+ github_token: $GITHUB_TOKEN
+ on:
+   branch: Travis-CI
