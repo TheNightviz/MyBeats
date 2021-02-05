@@ -1,6 +1,6 @@
 import React from 'react';
-import UserNav from './UserNav';
-import BottomFooter from './BottomFooter';
+import UserNav from '../UserNav';
+import BottomFooter from '../BottomFooter';
 
 const MyAccount = () =>
 {

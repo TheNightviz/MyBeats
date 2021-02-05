@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom'
-import Home from '../components/Home'
-import Registration from '../components/Registration'
-import Login from '../components/Login'
+import Home from '../components/Home/Home'
+import Registration from '../components/MyBeatsAuth/Registration'
+import Login from '../components/MyBeatsAuth/Login'
 import ConnectSpotify from '../components/Spotify/ConnectSpotify'
 
 
