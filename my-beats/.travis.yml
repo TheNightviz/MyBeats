@@ -14,4 +14,4 @@ deploy:
  skip-cleanup: true
  github_token: $GITHUB_TOKEN
  on:
-   branch: Travis-CI
+   branch: master
