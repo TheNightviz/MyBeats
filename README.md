@@ -16,4 +16,4 @@ This is Rey Ortiz changing MyBeats readme.....
 ![alt text](https://github.com/TheNightviz/MyBeats/blob/master/System%20Architecture.png "System Architecture")
 
 # Javascript Style Guide:
-We will be adhering to [this styleguide] (https://google.github.io/styleguide/jsguide.html) for javascript.
+We will be adhering to [this styleguide](https://google.github.io/styleguide/jsguide.html) for javascript.
