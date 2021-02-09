@@ -1,33 +1,33 @@
 import React from 'react';
-import { userAccessToken } from './OverView';
+
 
 const OverViewData = () => {
     return (
        <div>
            <h1> This is MyOverViewData </h1>
-           <GetTopArtists />
        </div>
     );
 }
 
 //Gets users top artists
-function GetTopArtists() {
+function getTopArtists() {
     console.log("USER ACT:");
+    var userAccessToken = localStorage.getItem('spotifyToken');
     console.log(userAccessToken);
     var getRequest = 'https://api.spotify.com/v1/me/top/artists';
     // API endpoint
     console.log("TOP ARTISTS:");
-    fetch(getRequest, {
+    var myTopArtists = fetch(getRequest, {
         headers: {'Authorization': 'Bearer ' + userAccessToken}
     }).then(response => response.json()).then((data) => {
         console.log(data);
         return data;
     })
-    return (
-       <div>
-          <h1> Data printed to console </h1>
-       </div>
-    )
+   
+    return myTopArtists;
 }
+
+var myTopArtists = getTopArtists();
+console.log(myTopArtists);
 
 export default OverViewData;

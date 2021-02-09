@@ -21,6 +21,8 @@ const Navbar = () => {
 
 export default Navbar;
 
+// Ignore
+
 {/*
    Potential Logo Text:
    1. https://www.dafont.com/musicografi.font?fpp=200&text=MyBeats

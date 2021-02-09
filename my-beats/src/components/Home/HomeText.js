@@ -1,5 +1,5 @@
 import React from 'react';
-import landingText from './css/landingText.css';
+import landingText from '../../css/landingText.css';
 
 const Home = () => {
     return (

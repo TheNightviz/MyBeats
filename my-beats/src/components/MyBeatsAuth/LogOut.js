@@ -1,6 +1,6 @@
 import React from 'react';
-import Navbar from './Navbar';
-import BottomFooter from './BottomFooter';
+import Navbar from '../Navbar';
+import BottomFooter from '../BottomFooter';
 
 
 const LogOut = () =>
