@@ -7,14 +7,13 @@ const OverViewData = () => {
        <div>
            <h1> This is MyOverViewData </h1>
            <FavArtistText />
-            <Bar
-              data={artistData}
-              />
+            <ArtistGraph />
        </div>
     );
 }
 
 //Gets users top artists
+
 function getTopArtists() {
     var returnValue = {};
     console.log("USER ACT:");
@@ -23,18 +22,24 @@ function getTopArtists() {
     var getRequest = 'https://api.spotify.com/v1/me/top/artists';
     // API endpoint
     console.log("TOP ARTISTS:");
-    var myTopArtists = fetch(getRequest, {
+    fetch(getRequest, {
         headers: {'Authorization': 'Bearer ' + userAccessToken}
     }).then(response => response.json()).then((data) => {
         returnValue = data;
         console.log(data);
         return data;
+    }).then(function(data) {
+        console.log("DATA!");
+        console.log(data);
+        data.items.forEach((artist) => {artistData.labels.push(artist.name);});
+        console.log(artistData);
+        let testChart = this.reference.chartInstance;
+        testChart.update();
     })
-   
-    return returnValue;
+
    // return myTopArtists.then(response => response.json()).then(data);
 }
-
+/*
 var userAccessToken = localStorage.getItem('spotifyToken');
     console.log(userAccessToken);
     var getRequest = 'https://api.spotify.com/v1/me/top/artists';
@@ -45,18 +50,7 @@ var userAccessToken = localStorage.getItem('spotifyToken');
     }).then(response => response.json()).then((data) => {
         return data;
     })
-
-    const getArtists = async () => {
-       const myArtists = await artists;
-       console.log(await myArtists);
-       var test2 = await artists;
-       return test2;
-    }
-
-   
-    var objTest = {}
-    //(getArtists().then((value) => objTest = { ... value}));
-
+*/
       const artistData = {
         labels: ["test"],
         datasets: [
@@ -69,5 +63,22 @@ var userAccessToken = localStorage.getItem('spotifyToken');
           }
         ]
       };
+
+      class ArtistGraph extends React.Component {
+        chartReference = {};
+        constructor(props) {
+          super(props);
+          this.chartReference = React.createRef();
+        }
       
+        componentDidMount() {
+          console.log(this.chartReference); // returns a Chart.js instance reference
+          getTopArtists();
+        }
+
+        render() {
+          return (<Bar ref={(reference) => this.chartReference = reference} data={artistData} id={"artistGraph"}/>)
+        }
+      }
+
 export default OverViewData;

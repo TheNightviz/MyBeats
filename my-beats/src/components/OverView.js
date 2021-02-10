@@ -20,11 +20,21 @@ const OverView = () =>
 
 //Checks if user is connected to Spotify by using localStorage to handle showing ConnectAlert
 function ShowConnectAlert() {
-    if(localStorage.getItem('spotifyToken') === ''){
+    var accessToken = localStorage.getItem('spotifyToken')
+    if(accessToken === ''){
         if (getAccessToken() === '') {
             return <ConnectAlert />;
         }
-    }    
+    } 
+        var testPull = fetch('https://api.spotify.com/v1/me/top/artists', {
+            headers: {'Authorization': 'Bearer ' + accessToken}
+        }).then(function(response){
+            if (!response.ok){
+                localStorage.setItem('spotifyToken', "");
+                return <ConnectAlert />;
+            }
+        });
+   
     return <OverViewData />; 
 }
 
@@ -100,3 +110,11 @@ var myTopArtists = getTopArtists();
 console.log(myTopArtists);
 
 export default OverView;
+/* test code for testing access token, remove later
+fetch('https://api.spotify.com/v1/me/top/artists', {
+            headers: {'Authorization': 'Bearer ' + localStorage.getItem('spotifyToken')}
+        }).then(function(response){
+            if (!response.ok){
+                console.log("beep!")
+            }});
+            */
