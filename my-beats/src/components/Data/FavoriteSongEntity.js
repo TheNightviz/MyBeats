@@ -1,10 +1,10 @@
 import React from 'react';
-import MyDataText from './MyDataText';
+import FavSongText from './FavSongText';
 import { Bar } from "react-chartjs-2";
 
 
 const data = {
-  labels: ["Rock", "Blues", "Punk", "Funk", "House", "Electronic", "Other"],
+  labels: ["Song 1", "Song 2", "Song 3", "Song 4", "Song 5", "Song 6", "Song 7"],
   datasets: [
     {
       label: "Genres",
@@ -19,10 +19,10 @@ const data = {
 
 
 
-  const GenreEntity = () =>{
+  const FavArtistEntity = () =>{
     return(
-      <div class = 'myGenreContainer' id='genre'>
-        <MyDataText />
+      <div class = 'favSongContainer' id="song">
+        <FavSongText />
         <Bar 
               data={data}
             />
@@ -32,4 +32,4 @@ const data = {
  
 }
 
-  export default GenreEntity;
+  export default FavArtistEntity;
