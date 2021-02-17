@@ -1,51 +1,31 @@
 import React from 'react';
 import UserNav from '../UserNav';
 import BottomFooter from '../BottomFooter';
-import MyDataText from './MyDataText';
-import { Bar } from "react-chartjs-2";
+import myDataStyle from '../../css/myData.css';
+import DataEntities from './DataEntities';
+import myDataText from './MyDataText';
+import GenreEntity from './GenreEntity';
+import FavArtistEntity from './FavArtistEntity';
+import FavoriteSongEntity from './FavoriteSongEntity';
+
+
 import FavArtistText from './FavArtistText';
-
-  const data = {
-    labels: ["Rock", "Blues", "Punk", "Funk", "House", "Electronic", "Other"],
-    datasets: [
-      {
-        label: "Genres",
-        data: [65, 42, 38, 32, 28, 15, 5],
-        fill: true,
-        backgroundColor: "#f2C75C",
-        borderColor: "rgba(33,33,33, 1)"
-      }
-    ]
-  };
+import ListeningEntity from './ListeningEntity';
 
 
-  const artistData = {
-    labels: ["Kanye West", "Eminem", "Lil Wayne", "Post Malone", "21 Savage", "Drake", "Future"],
-    datasets: [
-      {
-        label: "Artist",
-        data: [57, 51, 34, 37, 33, 24, 22],
-        fill: true,
-        backgroundColor: "#f2C75C",
-        borderColor: "rgba(33,33,33, 1)"
-      }
-    ]
-  };
 
 
 const MyData = () =>
 {
        return(
-       <div class = 'pageContainer'>
+       <div class = 'mydataPageContainer'>
            <UserNav />
-           <MyDataText />
-           <Bar 
-              data={data}
-            />
-            <FavArtistText />
-            <Bar
-              data={artistData}
-              />
+           <h5 class="mydataHeader">Click on any category below to see your Data.</h5>
+          <DataEntities />
+          <GenreEntity />
+          <FavArtistEntity />
+          <ListeningEntity />
+          <FavoriteSongEntity />
            <BottomFooter />
        </div>)
 }
