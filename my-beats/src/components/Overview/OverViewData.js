@@ -1,24 +1,47 @@
 import React from 'react';
-import Entity from './Entity.js';
 import overviewStyle from '../../css/overview.css';
+
+const { StatisticsEntity, RecentlyPlayedEntity, DataEntity, OtherDataEntity } = require('./Entity.js');
 
 
 const OverViewData = () => {
     return (
        <div class="overviewPageContainer">
-           <h1 class="overviewHeader"> Welcome, userName123! </h1>
+           <h1 class="overviewHeader"> Welcome, { getSpotifyUsername() }! </h1>
            <h5 class="overviewHeader" id="headersubtext"> Your daily overview is ready.
             You can also check out more stats on the <a id="mydatalink" href='/MyData'>MyData page</a>.</h5>
            <div class="overviewEntitiesContainer">
-             <Entity name="Statistics" />
-             <Entity name="Recently Played" />
-             <Entity name="MusicDataEntity" />
-             <Entity name="More Music Data Entity" />
+             <StatisticsEntity name="Statistics" />
+             <RecentlyPlayedEntity name="Recently Played" />
+             <DataEntity name="Data" />
+             <OtherDataEntity name="Other Data" />
            </div>
        </div>
     );
 }
-//should be just <Entity title="Stats" />
+
+function getSpotifyUsername () {
+    var userAccessToken = localStorage.getItem('spotifyToken');
+    var getRequest = 'https://api.spotify.com/v1/me/';
+    // API endpoint
+    var userProfileData = fetch(getRequest, {
+        headers: {'Authorization': 'Bearer ' + userAccessToken}
+    }).then(response => response.json()).then((data) => {
+        console.log("user profile data:")
+        console.log(data);
+        return data;
+    })
+    //console.log("data:" + userProfileData);
+    //var userProfileName = userProfileData["display_name"];
+    //console.log("name " + userProfileName);
+
+    //const spotifyUsername = async () => {
+    //    return await userProfileData;
+    //}
+
+    return userProfileData.display_name;
+}
+
 
 //Gets users top artists
 function getTopArtists() {
