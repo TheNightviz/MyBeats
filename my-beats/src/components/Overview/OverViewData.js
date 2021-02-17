@@ -7,7 +7,7 @@ const { StatisticsEntity, RecentlyPlayedEntity, DataEntity, OtherDataEntity } = 
 const OverViewData = () => {
     return (
        <div class="overviewPageContainer">
-           <h1 class="overviewHeader"> Welcome, { getSpotifyUsername().display_name }! </h1>
+           <h1 class="overviewHeader"> Welcome, { getSpotifyUsername() }! </h1>
            <h5 class="overviewHeader" id="headersubtext"> Your daily overview is ready.
             You can also check out more stats on the <a id="mydatalink" href='/MyData'>MyData page</a>.</h5>
            <div class="overviewEntitiesContainer">
@@ -31,11 +31,17 @@ function getSpotifyUsername () {
         console.log(data);
         return data;
     })
-    console.log("data:" + userProfileData);
-    var userProfileName = userProfileData["display_name"];
-    console.log("name " + userProfileName);
-    return userProfileData;
+    //console.log("data:" + userProfileData);
+    //var userProfileName = userProfileData["display_name"];
+    //console.log("name " + userProfileName);
+
+    //const spotifyUsername = async () => {
+    //    return await userProfileData;
+    //}
+
+    return userProfileData.display_name;
 }
+
 
 //Gets users top artists
 function getTopArtists() {
