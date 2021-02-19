@@ -8,7 +8,7 @@ const OverViewData = () => {
     return (
        <div class="overviewPageContainer">
            <getSpotifyUsername />
-           <h1 class="overviewHeader"> Welcome, brocliman! </h1>
+           <h1 class="overviewHeader"> Welcome, { displayText() }! </h1>
            <h5 class="overviewHeader" id="headersubtext"> Your daily overview is ready.
             You can also check out more stats on the <a id="mydatalink" href='/MyData'>MyData page</a>.</h5>
            <div class="overviewEntitiesContainer">
@@ -34,6 +34,10 @@ const getSpotifyUsername = async () => {
     console.log("display name: {" + data.display_name + "}");
     return data.display_name;
 };
+
+function displayText () {
+    return <getSpotifyUsername />;
+}
 
 
 
