@@ -14,7 +14,7 @@ const UserNav = () => {
                     <li><a href="/OverView"style={{color:'#f2C75C', fontSize:'15px',}}>MyOverview</a></li>
                     <li><a href="/Mydata"style={{color:'#f2C75C', fontSize:'15px',}}>MyData</a></li>
                     <li><a href="/MyAccount"style={{color:'#f2C75C', fontSize:'15px',}}>MyAccount</a></li>
-                    <li><a href="/LogOut"style={{color:'#f2C75C', fontSize:'15px',}}>Logout</a></li>
+                    <li><a href="/"style={{color:'#f2C75C', fontSize:'15px',}}>Logout</a></li>
 
 
                 </ul>
