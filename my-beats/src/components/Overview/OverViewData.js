@@ -7,7 +7,8 @@ const { StatisticsEntity, RecentlyPlayedEntity, DataEntity, OtherDataEntity } = 
 const OverViewData = () => {
     return (
        <div class="overviewPageContainer">
-           <h1 class="overviewHeader"> Welcome, { getSpotifyUsername() }! </h1>
+           <getSpotifyUsername />
+           <h1 class="overviewHeader"> Welcome, brocliman! </h1>
            <h5 class="overviewHeader" id="headersubtext"> Your daily overview is ready.
             You can also check out more stats on the <a id="mydatalink" href='/MyData'>MyData page</a>.</h5>
            <div class="overviewEntitiesContainer">
@@ -20,27 +21,46 @@ const OverViewData = () => {
     );
 }
 
-function getSpotifyUsername () {
+const userProfileData = fetch('https://api.spotify.com/v1/me/', {
+    headers: {'Authorization': 'Bearer ' + localStorage.getItem('spotifyToken')}
+}).then(response => response.json()).then((data) => {
+    console.log("user profile data:")
+    console.log(data);
+    return data;
+})
+
+const getSpotifyUsername = async () => {
+    const data = await userProfileData;
+    console.log("display name: {" + data.display_name + "}");
+    return data.display_name;
+};
+
+
+
+
+/*function getSpotifyUsername () {
     var userAccessToken = localStorage.getItem('spotifyToken');
     var getRequest = 'https://api.spotify.com/v1/me/';
     // API endpoint
-    var userProfileData = fetch(getRequest, {
+    var userProfileName = '';
+    var  userProfileData = fetch(getRequest, {
         headers: {'Authorization': 'Bearer ' + userAccessToken}
     }).then(response => response.json()).then((data) => {
         console.log("user profile data:")
         console.log(data);
         return data;
     })
-    //console.log("data:" + userProfileData);
+
+    console.log("data:" + userProfileData);
     //var userProfileName = userProfileData["display_name"];
-    //console.log("name " + userProfileName);
+    console.log("name {" + userProfileName + "}");
 
     //const spotifyUsername = async () => {
     //    return await userProfileData;
     //}
 
-    return userProfileData.display_name;
-}
+    return userProfileData;
+}*/
 
 
 //Gets users top artists
