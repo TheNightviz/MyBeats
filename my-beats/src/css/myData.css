@@ -1,0 +1,70 @@
+.myDataTextContent1 {
+   text-align:center;
+   position: relative;
+   margin-top: 0px;
+   color: #F6F4E6;
+   background: rgb(33,33,33, 1);
+   padding: 5px;
+   margin-bottom: 0px;
+   width: 100%;
+   font-size: 35px;
+}
+.myDataTextContent2 {
+   text-align:center;
+   position: relative;
+   margin-top: 0px;
+   color: #F6F4E6;
+   background: rgb(33,33,33, 1);
+   padding: 5px;
+   margin-bottom: 0px;
+   width: 100%;
+   font-size: 20px;
+}
+
+.myGenreContainer {
+   margin-top:250px;
+ }
+
+.mydataPageContainer{
+   position: relative;
+   background-color: #41444B;
+   min-height: 650px;
+   height: 100vw;
+   width: 98.5vw;
+   min-height: 600vh;
+   
+
+}
+
+.mydataHeader{
+   color: #F2C75C;
+   text-align: center;
+   padding-top:  50px;
+}
+
+.grid-container {
+   display: inline-grid;;
+   height: 175px;
+   grid-template-columns: 250px 250px 250px 250px;
+   grid-gap: 10px;
+   background-color: transparent;
+   padding: 10px;
+   justify-items: right ;
+     
+   /* justify-content: right; */
+
+
+ }
+ 
+ .grid-container > div {
+   background-color: #C4C4C4;
+   text-align: center;
+   padding: 20px 0;
+   font-size: 30px;
+   border-radius: 10px;
+   
+   border-width: 1px;
+   width: 220px;
+   height: 220px;
+   
+ }

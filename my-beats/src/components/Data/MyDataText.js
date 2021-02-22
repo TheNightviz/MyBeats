@@ -1,7 +1,7 @@
 import React from 'react';
-import myData from './css/myData.css';
+import myData from '../../css/myData.css';
 
-const myDataText = () => {
+const MyDataText = () => {
     return (
 
        <div>
@@ -18,4 +18,4 @@ const myDataText = () => {
 
     );
 }
-export default myDataText;
+export default MyDataText;
