@@ -7,14 +7,26 @@ import myDataText from './MyDataText';
 import GenreEntity from './GenreEntity';
 import FavArtistEntity from './FavArtistEntity';
 import FavoriteSongEntity from './FavoriteSongEntity';
-
-
 import FavArtistText from './FavArtistText';
 import ListeningEntity from './ListeningEntity';
+import jsPDF from 'jspdf';
+import * as htmlToImage from 'html-to-image';
+import html2canvas from "html2canvas";
 
 
-
-
+const onButtonClick = () => {
+    let domElement = window.document.getElementsByClassName("mydataPageContainer")[0];
+    htmlToImage.toPng(domElement)
+      .then(function (dataUrl) {
+        console.log(dataUrl);
+        const pdf = new jsPDF();
+        pdf.addImage(dataUrl, 'PNG', 15, 0, 300, 525);
+        pdf.save("MyBeats_Data.pdf");
+      })
+      .catch(function (error) {
+        console.error('oops, something went wrong!', error);
+      });
+    };
 const MyData = () =>
 {
        return(
@@ -26,6 +38,9 @@ const MyData = () =>
           <FavArtistEntity />
           <ListeningEntity />
           <FavoriteSongEntity />
+          <div>
+        <button class='button' onClick={onButtonClick}>Download Music Data</button>
+        </div>
            <BottomFooter />
        </div>)
 }
