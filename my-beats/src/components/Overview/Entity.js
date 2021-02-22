@@ -38,8 +38,8 @@ class StatisticsEntity extends React.Component {
 
     //updates followerCount to num spotify followers
     getSpotifyFollowers = async () => {
-        const profiledata = await userProfileData;
-        this.setState({ followerCount: profiledata.followers.total });
+        const data = await userProfileData;
+        this.setState({ followerCount: data.followers.total });
     };
 
     //updates components when component is rendered
