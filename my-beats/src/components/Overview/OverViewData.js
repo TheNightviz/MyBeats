@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import overviewStyle from '../../css/overview.css';
 
 const { StatisticsEntity, RecentlyPlayedEntity, DataEntity, OtherDataEntity } = require('./Entity.js');
@@ -8,7 +8,7 @@ const OverViewData = () => {
     return (
        <div class="overviewPageContainer">
            <getSpotifyUsername />
-           <h1 class="overviewHeader"> Welcome, { displayText() }! </h1>
+           <Welcome />
            <h5 class="overviewHeader" id="headersubtext"> Your daily overview is ready.
             You can also check out more stats on the <a id="mydatalink" href='/MyData'>MyData page</a>.</h5>
            <div class="overviewEntitiesContainer">
@@ -21,6 +21,11 @@ const OverViewData = () => {
     );
 }
 
+/*
+  fetches user profile data from API and returns it in "data". This data will
+  to be fetched in an "async() / await" call as exampled below in the Welcome
+  class
+**/
 const userProfileData = fetch('https://api.spotify.com/v1/me/', {
     headers: {'Authorization': 'Bearer ' + localStorage.getItem('spotifyToken')}
 }).then(response => response.json()).then((data) => {
@@ -29,42 +34,33 @@ const userProfileData = fetch('https://api.spotify.com/v1/me/', {
     return data;
 })
 
-const getSpotifyUsername = async () => {
-    const data = await userProfileData;
-    console.log("display name: {" + data.display_name + "}");
-    return data.display_name;
-};
 
-function displayText () {
-    return <getSpotifyUsername />;
+/*
+  Gets the spotify username from 'userProfileData' and updates a welcome header.
+**/
+class Welcome extends React.Component {
+   constructor(props) {
+     super(props);
+     this.state = {
+       username: ""
+     };
+   }
+
+   //updates username to spotify display name
+   getSpotifyUsername = async () => {
+       const data = await userProfileData;
+       this.setState({ username: data.display_name });
+   };
+
+   //calls getSpotifyUsername when component is rendered
+   componentDidMount() {
+     this.getSpotifyUsername();
+   }
+
+   render() {
+     return <h1 class="overviewHeader"> Welcome, {this.state.username}!</h1>;
+   }
 }
-
-
-
-
-/*function getSpotifyUsername () {
-    var userAccessToken = localStorage.getItem('spotifyToken');
-    var getRequest = 'https://api.spotify.com/v1/me/';
-    // API endpoint
-    var userProfileName = '';
-    var  userProfileData = fetch(getRequest, {
-        headers: {'Authorization': 'Bearer ' + userAccessToken}
-    }).then(response => response.json()).then((data) => {
-        console.log("user profile data:")
-        console.log(data);
-        return data;
-    })
-
-    console.log("data:" + userProfileData);
-    //var userProfileName = userProfileData["display_name"];
-    console.log("name {" + userProfileName + "}");
-
-    //const spotifyUsername = async () => {
-    //    return await userProfileData;
-    //}
-
-    return userProfileData;
-}*/
 
 
 //Gets users top artists
@@ -85,7 +81,6 @@ function getTopArtists() {
     return myTopArtists;
 }
 
-var myTopArtists = getTopArtists();
-console.log(myTopArtists);
+//export { userProfileData };
 
 export default OverViewData;
