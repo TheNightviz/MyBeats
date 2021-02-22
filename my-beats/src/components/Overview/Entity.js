@@ -1,5 +1,5 @@
 import React from 'react';
-import overviewStyle from '../../css/overview.css';
+import '../../css/overview.css';
 
 //const { userProfileData } = require('./OverViewData.js');
 

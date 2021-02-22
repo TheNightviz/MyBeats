@@ -3,7 +3,7 @@ import HomeBackGround from './HomeBackground';
 import BottomFooter from '../BottomFooter';
 import Navbar from '../Navbar';
 import HomeText from './HomeText';
-import mainStyle from '../../css/main.css';
+import '../../css/main.css';
 
 const Home = () => {
     return (
