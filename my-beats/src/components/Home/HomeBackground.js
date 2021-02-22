@@ -1,5 +1,5 @@
 import React from 'react';
-import rotatingTextStyle from '../../css/rotatingTextStyle.css';
+import '../../css/rotatingTextStyle.css';
 
 const HomeBackGround = () =>{
 
