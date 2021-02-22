@@ -50,3 +50,9 @@
 .entityHeader {
   color: #F2C75C;
 }
+
+.entityComponent {
+  text-align: left;
+  margin-left: 10px;
+  margin-right: 10px;
+}
