@@ -19,7 +19,9 @@ const userProfileData = fetch('https://api.spotify.com/v1/me/', {
 /*
   fetches user's saved tracks from API and returns it in "data"
 **/
-const userSavedTracks = fetch('https://api.spotify.com/v1/me/tracks?offset=0&limit=50', {
+var offset = 0;
+
+const userSavedTracks = fetch('https://api.spotify.com/v1/me/tracks?limit=50&offset=' + offset, {
     headers: {'Authorization': 'Bearer ' + localStorage.getItem('spotifyToken')}
 }).then(response => response.json()).then((data) => {
     console.log("user saved tracks:")
@@ -32,7 +34,8 @@ class StatisticsEntity extends React.Component {
       super(props);
       this.name = props.name;
       this.state = {
-       followerCount: -1
+       followerCount: -1,
+       savedTracks: -1
       };
     }
 
@@ -41,11 +44,26 @@ class StatisticsEntity extends React.Component {
         const data = await userProfileData;
         this.setState({ followerCount: data.followers.total });
     };
+      
+    //parses saved tracks @ rate of 50/loop (max limit) and sets this.savedTracks to total saved tracks
+    getSavedTracks = async () => {
+        var totalSavedTracks = 0;
+        var isDoneParsing = false;
+        while(isDoneParsing == false) {
+          const data = await userSavedTracks;
+          offset += 50;
+          totalSavedTracks += data.items.length
+          if ( data.items.length < 50) {
+             isDoneParsing = true;
+          }
+        }
+        this.setState({ savedTracks: totalSavedTracks });
+    };
 
     //updates components when component is rendered
     componentDidMount() {
       this.getSpotifyFollowers();
-      //this.countSavedTracks();
+      this.getSavedTracks();
     }
 
     render() {
@@ -53,24 +71,45 @@ class StatisticsEntity extends React.Component {
             <div class='entityContainer'>
               <h2 class='entityHeader'>{this.name}</h2>
               <h5 class='entityComponent'> Your Follower Count: {this.state.followerCount} </h5>
+              <h5 class='entityComponent'> Number of Saved Tracks: {this.state.savedTracks} </h5>
             </div>
       );
     }
 }
 
+const userRecentlyPlayed = fetch('https://api.spotify.com/v1/me/player/recently-played?limit=4', {
+    headers: {'Authorization': 'Bearer ' + localStorage.getItem('spotifyToken')}
+}).then(response => response.json()).then((data) => {
+    console.log("user recently played:")
+    console.log(data);
+    return data;
+})
+
 class RecentlyPlayedEntity extends React.Component {
     constructor(props) {
       super(props);
       this.name = props.name;
+      this.state = {
+        song1: '',
+        song2: '',
+        song3: ''
+      }
     }
+
+    getRecentlyPlayed = async () => {
+      const data = await userRecentlyPlayed;
+      this.setState({ song1: data.items[0]});
+      this.setState({ song2: data.items[1]});
+      this.setState({ song3: data.items[2]});
+    };
 
     render() {
       return (
             <div class='entityContainer'>
               <h2 class='entityHeader'> {this.name} </h2>
-              <h3> song 1 </h3>
-              <h3> song 2 </h3>
-              <h3> song 3 </h3>
+              <h3> song1: {this.state.song1} </h3>
+              <h3> song2: {this.state.song2} </h3>
+              <h3> song3: {this.state.song3} </h3>
             </div>
       );
     }
