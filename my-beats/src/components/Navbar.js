@@ -6,8 +6,8 @@ const Navbar = () => {
         <nav className="nav-wrapper grey darken-4" style={{position:'relative'}}>
             <div className="container">
                 <a href="/" classname="left">
-                      <img src = '/Photos/mbLogoFinal.png' style={{padding:'5px', width:'33px', height:'auto'}}></img>
-                      <img src = '/Photos/textlogotrans.png' style={{padding:'5px', width:'220px', height:'auto'}}></img>
+                      <img src = '/Photos/mbLogoFinal.png' alt='my-beats-logo' style={{padding:'5px', width:'33px', height:'auto'}}></img>
+                      <img src = '/Photos/textlogotrans.png' alt='my-beats-logo-text' style={{padding:'5px', width:'220px', height:'auto'}}></img>
                 </a>
                 <ul className="right">
                     <li><a href="/SignUpPage"style={{color:'#f2C75C', fontSize:'15px',}}>Create an Account</a></li>
@@ -20,13 +20,3 @@ const Navbar = () => {
 }
 
 export default Navbar;
-
-// Ignore
-
-{/*
-   Potential Logo Text:
-   1. https://www.dafont.com/musicografi.font?fpp=200&text=MyBeats
-   2. https://www.dafont.com/edmund.font?fpp=200&text=MyBeats
-   3. https://www.dafont.com/voice-in-my-head.font?fpp=50&text=MyBeats
-   4. https://www.dafont.com/moon-get.font?fpp=50&text=MyBeats
-*/}
