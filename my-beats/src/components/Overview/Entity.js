@@ -19,9 +19,8 @@ const userProfileData = fetch('https://api.spotify.com/v1/me/', {
 /*
   fetches user's saved tracks from API and returns it in "data"
 **/
-var offset = 0;
 
-const userSavedTracks = fetch('https://api.spotify.com/v1/me/tracks?limit=50&offset=' + offset, {
+const userSavedTracks = fetch('https://api.spotify.com/v1/me/tracks?limit=50&offset=' + 0, {
     headers: {'Authorization': 'Bearer ' + localStorage.getItem('spotifyToken')}
 }).then(response => response.json()).then((data) => {
     console.log("user saved tracks:")
@@ -48,16 +47,27 @@ class StatisticsEntity extends React.Component {
     //parses saved tracks @ rate of 50/loop (max limit) and sets this.savedTracks to total saved tracks
     getSavedTracks = async () => {
         var totalSavedTracks = 0;
+        var offset = 0;
         var isDoneParsing = false;
+        console.log('pre loop');
+
+        const data = await userSavedTracks;
+                 /*
         while(isDoneParsing == false) {
-          const data = await userSavedTracks;
+          const data = await userSavedTracks(offset);
+
           offset += 50;
-          totalSavedTracks += data.items.length
-          if ( data.items.length < 50) {
+          totalSavedTracks += data.items.length;
+          console.log(data);
+
+          if ( data.total < 50) {
              isDoneParsing = true;
           }
+
+         isDoneParsing = true;
         }
-        this.setState({ savedTracks: totalSavedTracks });
+        */
+        this.setState({ savedTracks: data.total});
     };
 
     //updates components when component is rendered
