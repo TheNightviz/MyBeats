@@ -117,9 +117,9 @@ class RecentlyPlayedEntity extends React.Component {
       return (
             <div class='entityContainer'>
               <h2 class='entityHeader'> {this.name} </h2>
-              <h3> song1: {this.state.song1} </h3>
-              <h3> song2: {this.state.song2} </h3>
-              <h3> song3: {this.state.song3} </h3>
+              <h5 class='entityComponent'> song1: {this.state.song1} </h5>
+              <h5 class='entityComponent'> song2: {this.state.song2} </h5>
+              <h5 class='entityComponent'> song3: {this.state.song3} </h5>
             </div>
       );
     }
