@@ -1,17 +1,73 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
 import { Bar } from "react-chartjs-2";
-import FavArtistText from './FavArtistText';
+import axios from "axios";
 
-const OverViewData = () => {
-    return (
-       <div>
-           <h1> This is MyOverViewData </h1>
-           <FavArtistText />
-            <ArtistGraph />
-       </div>
-    );
-}
+const ArtistGraph = () => {
+  const [chartData, setChartData] = useState({});
+  const [employeeSalary, setEmployeeSalary] = useState([]);
+  const [employeeAge, setEmployeeAge] = useState([]);
 
+  const chart = () => {
+    let empSal = [];
+    let empAge = [];
+    let userAccessToken = localStorage.getItem('spotifyToken');
+    console.log("TEST1");
+    const options = {
+      method : 'GET',
+      url : 'https://api.spotify.com/v1/me/top/artists',
+      headers: {'Authorization': 'Bearer ' + userAccessToken}
+    }
+    axios(options)
+      .then(res => {
+        console.log("TEST2");
+        console.log(res.data);
+        for (const dataObj of res.data.data) {
+          empSal.push(parseInt(dataObj.employee_salary));
+          empAge.push(parseInt(dataObj.employee_age));
+        }
+        setChartData({
+          labels: empAge,
+          datasets: [
+            {
+              label: "Songs",
+              data: empSal,
+              backgroundColor: ["rgba(75, 192, 192, 0.6)"],
+              borderWidth: 4
+            }
+          ]
+        });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+    console.log(empSal, empAge);
+  };
+
+  useEffect(() => {
+    chart();
+  }, []);
+  return (
+    <div className="App">
+      <h1>Top Genres</h1>
+      <div>
+        <Bar
+          data={chartData}
+          options={{
+            responsive: true,
+            title: { text: "Genres", display: false },
+            fill: true,
+            backgroundColor: "#f2C75C",
+            borderColor: "rgba(33,33,33, 1)"
+            }
+          }
+        />
+      </div>
+    </div>
+  );
+};
+
+export default ArtistGraph;
+/*
 //Gets users top artists
 
 function getTopArtists() {
@@ -50,7 +106,7 @@ var userAccessToken = localStorage.getItem('spotifyToken');
     }).then(response => response.json()).then((data) => {
         return data;
     })
-*/
+
       const artistData = {
         labels: ["test"],
         datasets: [
@@ -82,3 +138,4 @@ var userAccessToken = localStorage.getItem('spotifyToken');
       }
 
 export default OverViewData;
+*/

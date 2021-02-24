@@ -1,6 +1,7 @@
 import React from 'react';
 import MyDataText from './MyDataText';
 import { Bar } from "react-chartjs-2";
+import DataGraph from './DataGraph';
 
 
 const data = {
@@ -23,9 +24,7 @@ const data = {
     return(
       <div class = 'myGenreContainer' id='genre'>
         <MyDataText />
-        <Bar 
-              data={data}
-            />
+        <DataGraph />
         </div>
     )
   
