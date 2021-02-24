@@ -34,7 +34,9 @@ class StatisticsEntity extends React.Component {
       this.name = props.name;
       this.state = {
        followerCount: -1,
-       savedTracks: -1
+       savedTracks: -1,
+       savedAlbums: -1,
+       totalPlaybackTime: -1
       };
     }
 
@@ -46,9 +48,11 @@ class StatisticsEntity extends React.Component {
       
     //parses saved tracks @ rate of 50/loop (max limit) and sets this.savedTracks to total saved tracks
     getSavedTracks = async () => {
+        /*
         var totalSavedTracks = 0;
         var offset = 0;
         var isDoneParsing = false;
+        */
         console.log('pre loop');
 
         const data = await userSavedTracks;
@@ -80,14 +84,28 @@ class StatisticsEntity extends React.Component {
       return (
             <div class='entityContainer'>
               <h2 class='entityHeader'>{this.name}</h2>
-              <h5 class='entityComponent'> Your Follower Count: {this.state.followerCount} </h5>
-              <h5 class='entityComponent'> Number of Saved Tracks: {this.state.savedTracks} </h5>
+              <div>
+                <h5 class='entityComponent'>Follower Count: </h5><h5 class='entityComponent righttextalign'>{this.state.followerCount}</h5>
+              </div>
+              <div style={{clear: 'both'}}></div>
+              <div>
+                <h5 class='entityComponent'>Liked Tracks: </h5><h5 class='entityComponent righttextalign'>{this.state.savedTracks}</h5>
+              </div>
+              <div style={{clear: 'both'}}></div>
+              <div>
+                <h5 class='entityComponent'>Liked Albums: </h5><h5 class='entityComponent righttextalign'>{this.state.savedAlbums}</h5>
+              </div>
+              <div style={{clear: 'both'}}></div>
+              <div>
+                <h5 class='entityComponent'>Playback Time: </h5><h5 class='entityComponent righttextalign'>{this.state.totalPlaybackTime}</h5>
+              </div>
+              <div style={{clear: 'both'}}></div>
             </div>
       );
     }
 }
 
-const userRecentlyPlayed = fetch('https://api.spotify.com/v1/me/player/recently-played?limit=4', {
+const userRecentlyPlayed = fetch('https://api.spotify.com/v1/me/player/recently-played?limit=5', {
     headers: {'Authorization': 'Bearer ' + localStorage.getItem('spotifyToken')}
 }).then(response => response.json()).then((data) => {
     console.log("user recently played:")
@@ -100,26 +118,47 @@ class RecentlyPlayedEntity extends React.Component {
       super(props);
       this.name = props.name;
       this.state = {
-        song1: '',
-        song2: '',
-        song3: ''
+        song1artist: '',
+        song1title: '',
+        song2artist: '',
+        song2title: '',
+        song3artist: '',
+        song3title: '',
+        song4artist: '',
+        song4title: '',
+        song5artist: '',
+        song5title: '',
+        
       }
     }
 
     getRecentlyPlayed = async () => {
       const data = await userRecentlyPlayed;
-      this.setState({ song1: data.items[0]});
-      this.setState({ song2: data.items[1]});
-      this.setState({ song3: data.items[2]});
+      this.setState({ song1artist: data.items[0].track.artists[0].name});
+      this.setState({ song2artist: data.items[1].track.artists[0].name});
+      this.setState({ song3artist: data.items[2].track.artists[0].name});
+      this.setState({ song4artist: data.items[3].track.artists[0].name});
+      this.setState({ song5artist: data.items[4].track.artists[0].name});
+      this.setState({ song1title: data.items[0].track.name});
+      this.setState({ song2title: data.items[1].track.name});
+      this.setState({ song3title: data.items[2].track.name});
+      this.setState({ song4title: data.items[3].track.name});
+      this.setState({ song5title: data.items[4].track.name});
     };
+
+    componentDidMount() {
+      this.getRecentlyPlayed();
+    }
 
     render() {
       return (
             <div class='entityContainer'>
               <h2 class='entityHeader'> {this.name} </h2>
-              <h5 class='entityComponent'> song1: {this.state.song1} </h5>
-              <h5 class='entityComponent'> song2: {this.state.song2} </h5>
-              <h5 class='entityComponent'> song3: {this.state.song3} </h5>
+              <h5 class='entityComponent'> 1. "{this.state.song1title}" by {this.state.song1artist} </h5>
+              <h5 class='entityComponent'> 2. "{this.state.song2title}" by {this.state.song2artist}  </h5>
+              <h5 class='entityComponent'> 3. "{this.state.song3title}" by {this.state.song3artist}  </h5>
+              <h5 class='entityComponent'> 4. "{this.state.song4title}" by {this.state.song4artist}  </h5>
+              <h5 class='entityComponent'> 5. "{this.state.song5title}" by {this.state.song5artist}  </h5>
             </div>
       );
     }
