@@ -1,5 +1,5 @@
 import React from 'react';
-import AlertStyle from './css/alert.css';
+import '../../css/alert.css';
 
 const ConnectAlert = () => {
     return (

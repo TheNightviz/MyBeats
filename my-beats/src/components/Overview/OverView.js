@@ -1,8 +1,8 @@
 import React from 'react';
-import UserNav from './UserNav';
-import BottomFooter from './BottomFooter';
-import ConnectAlert from './ConnectAlert';
-import OverViewData from './OverViewData';
+import UserNav from '../UserNav';
+import BottomFooter from '../BottomFooter';
+import ConnectAlert from '../Overview/ConnectAlert';
+import OverViewData from '../Overview/OverViewData';
 import { get } from 'request';
 /*import {isLoggedIn} from './Spotify/server.js';*/
 
@@ -40,13 +40,14 @@ function getAccessToken() {
     return accessToken;
 }
 
-fetchDataTest();
-
 /* DOCUMENTATION FOR GETTING DATA
 
 fetch(API_ENDPOINT)
 
 */
+
+/*
+fetchDataTest();
 
 function fetchDataTest() {
     var accessToken = localStorage.getItem('spotifyToken');
@@ -79,6 +80,7 @@ function fetchDataTest() {
         return data;
     })
 }
+**/
 
 //Gets users top artists
 function getTopArtists() {
