@@ -40,13 +40,14 @@ function getAccessToken() {
     return accessToken;
 }
 
-fetchDataTest();
-
 /* DOCUMENTATION FOR GETTING DATA
 
 fetch(API_ENDPOINT)
 
 */
+
+/*
+fetchDataTest();
 
 function fetchDataTest() {
     var accessToken = localStorage.getItem('spotifyToken');
@@ -79,5 +80,6 @@ function fetchDataTest() {
         return data;
     })
 }
+**/
 
 export default OverView;

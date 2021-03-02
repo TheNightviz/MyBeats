@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import overviewStyle from '../../css/overview.css';
+import React from 'react';
+import '../../css/overview.css';
 
 const { StatisticsEntity, RecentlyPlayedEntity, DataEntity, OtherDataEntity } = require('./Entity.js');
 
