@@ -26,6 +26,8 @@ const onButtonClick = () => {
       .catch(function (error) {
         console.error('oops, something went wrong!', error);
       });
+    //e.preventDefault();
+    window.open('http://facebook.com', "_blank")  
     };
 const MyData = () =>
 {
@@ -38,10 +40,10 @@ const MyData = () =>
           <FavArtistEntity />
           <ListeningEntity />
           <FavoriteSongEntity />
+          <BottomFooter />
           <div>
-        <button class='button' onClick={onButtonClick}>Download Music Data</button>
+        <button class='button' onClick={onButtonClick}>Download My Music Data And Share To Facebook</button>
         </div>
-           <BottomFooter />
        </div>)
 }
 
