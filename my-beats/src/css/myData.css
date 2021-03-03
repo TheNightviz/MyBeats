@@ -21,9 +21,16 @@
    font-size: 20px;
 }
 
-.myGenreContainer {
+
+/* .myGenreContainer {
    margin-top:250px;
  }
+
+ .favSongContainer{
+position: relative;
+min-height: 166vh;
+
+ } */
 
 .mydataPageContainer{
    position: relative;
@@ -31,7 +38,7 @@
    min-height: 650px;
    height: 100vw;
    width: 98.5vw;
-   min-height: 650vh;
+   min-height: 640vh;
    
 
 }
@@ -42,9 +49,10 @@
    padding-top:  50px;
 }
 
+/* changed height from 175 to 145 */
 .grid-container {
    display: inline-grid;;
-   height: 175px;
+   height: 400px;
    grid-template-columns: 250px 250px 250px 250px;
    grid-gap: 10px;
    background-color: transparent;

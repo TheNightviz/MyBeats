@@ -1,5 +1,5 @@
 import React from 'react';
-import Entity from '../Overview/Entity.js';
+// import Entity from '../Overview/Entity.js';
 // import FavArtistEntity from './Data/FavArtistEntity';
 
 const DataEntities = () =>{
