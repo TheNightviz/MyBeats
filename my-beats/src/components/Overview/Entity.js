@@ -28,6 +28,18 @@ const userSavedTracks = fetch('https://api.spotify.com/v1/me/tracks?limit=50&off
     return data;
 })
 
+/*
+  fetches user's saved albums from API and returns it in "data"
+**/
+
+const userSavedAlbums = fetch('https://api.spotify.com/v1/me/albums?limit=50&offset=' + 0, {
+    headers: {'Authorization': 'Bearer ' + localStorage.getItem('spotifyToken')}
+}).then(response => response.json()).then((data) => {
+    console.log("user saved albums:")
+    console.log(data);
+    return data;
+})
+
 class StatisticsEntity extends React.Component {
     constructor(props) {
       super(props);
@@ -48,36 +60,21 @@ class StatisticsEntity extends React.Component {
       
     //parses saved tracks @ rate of 50/loop (max limit) and sets this.savedTracks to total saved tracks
     getSavedTracks = async () => {
-        /*
-        var totalSavedTracks = 0;
-        var offset = 0;
-        var isDoneParsing = false;
-        */
-        console.log('pre loop');
-
         const data = await userSavedTracks;
-                 /*
-        while(isDoneParsing == false) {
-          const data = await userSavedTracks(offset);
-
-          offset += 50;
-          totalSavedTracks += data.items.length;
-          console.log(data);
-
-          if ( data.total < 50) {
-             isDoneParsing = true;
-          }
-
-         isDoneParsing = true;
-        }
-        */
         this.setState({ savedTracks: data.total});
     };
+
+    //parses saved albums @ rate of 50/loop (max limit) and sets this.savedAlbums to total saved albums
+    getSavedAlbums = async () => {
+      const data = await userSavedAlbums;
+      this.setState({ savedAlbums: data.total});
+  };
 
     //updates components when component is rendered
     componentDidMount() {
       this.getSpotifyFollowers();
       this.getSavedTracks();
+      this.getSavedAlbums();
     }
 
     render() {
@@ -120,6 +117,7 @@ class RecentlyPlayedEntity extends React.Component {
       this.state = {
         song1artist: '',
         song1title: '',
+        song1img: '',
         song2artist: '',
         song2title: '',
         song3artist: '',
@@ -144,6 +142,7 @@ class RecentlyPlayedEntity extends React.Component {
       this.setState({ song3title: data.items[2].track.name});
       this.setState({ song4title: data.items[3].track.name});
       this.setState({ song5title: data.items[4].track.name});
+      this.setState({ song1img: data.items[0].track.album.images[2].url});
     };
 
     componentDidMount() {
@@ -154,27 +153,82 @@ class RecentlyPlayedEntity extends React.Component {
       return (
             <div class='entityContainer'>
               <h2 class='entityHeader'> {this.name} </h2>
-              <h5 class='entityComponent recentlyPlayedSong'>"<i>{this.state.song1title}</i>" - {this.state.song1artist} </h5>
-              <h5 class='entityComponent recentlyPlayedSong'>"<i>{this.state.song2title}</i>" - {this.state.song2artist}  </h5>
-              <h5 class='entityComponent recentlyPlayedSong'>"<i>{this.state.song3title}</i>" - {this.state.song3artist}  </h5>
-              <h5 class='entityComponent recentlyPlayedSong'>"<i>{this.state.song4title}</i>" - {this.state.song4artist}  </h5>
-              <h5 class='entityComponent recentlyPlayedSong'>"<i>{this.state.song5title}</i>" - {this.state.song5artist}  </h5>
+              <div class='songContainer'>
+                <img src={this.state.song1img} alt='song1_cover' class='songCover'></img>
+                <h5 class='entityComponent recentlyPlayedSong'>1. "<i>{this.state.song1title}</i>" - {this.state.song1artist}  </h5>
+              </div>
+              <h5 class='entityComponent recentlyPlayedSong'>2. "<i>{this.state.song2title}</i>" - {this.state.song2artist}  </h5>
+              <h5 class='entityComponent recentlyPlayedSong'>3. "<i>{this.state.song3title}</i>" - {this.state.song3artist}  </h5>
+              <h5 class='entityComponent recentlyPlayedSong'>4. "<i>{this.state.song4title}</i>" - {this.state.song4artist}  </h5>
+              <h5 class='entityComponent recentlyPlayedSong'>5. "<i>{this.state.song5title}</i>" - {this.state.song5artist}  </h5>
             </div>
       );
     }
 }
 
-class DataEntity extends React.Component {
+class RecommendEntity extends React.Component {
     constructor(props) {
       super(props);
       this.name = props.name;
+      this.state = {
+        seed_tracks: '',
+        song1title: '',
+        song1artist: '',
+        song2title: '',
+        song2artist: '',
+        song3title: '',
+        song3artist: '',
+        song4title: '',
+        song4artist: '',
+        song5title: '',
+        song5artist: ''
+      }
+    }
+
+    getReccomended = async () => {
+      console.log("wait for seeeeeeeeed");
+      const data = await userRecentlyPlayed;
+      console.log("done seed");
+      this.setState ({ seed_tracks: data.items[0].track.id + '%2C'
+                                  + data.items[1].track.id + '%2C'
+                                  + data.items[2].track.id + '%2C'
+                                  + data.items[3].track.id + '%2C'
+                                  + data.items[4].track.id})
+
+      console.log("wait for recccccccc");
+      const reccs = await fetch('https://api.spotify.com/v1/recommendations?limit=5&seed_tracks=' + this.state.seed_tracks, {
+        headers: {'Authorization': 'Bearer ' + localStorage.getItem('spotifyToken')}
+        }).then(response => response.json()).then((reccSongs) => {
+        console.log("user reccomended:")
+        console.log(reccSongs);
+        return reccSongs;
+        })
+      console.log("done")
+      this.setState ({ song1title: reccs.tracks[0].name})
+      this.setState ({ song1artist: reccs.tracks[0].artists[0].name})
+      this.setState ({ song2title: reccs.tracks[1].name})
+      this.setState ({ song2artist: reccs.tracks[1].artists[0].name})
+      this.setState ({ song3title: reccs.tracks[2].name})
+      this.setState ({ song3artist: reccs.tracks[2].artists[0].name})
+      this.setState ({ song4title: reccs.tracks[3].name})
+      this.setState ({ song4artist: reccs.tracks[3].artists[0].name})
+      this.setState ({ song5title: reccs.tracks[4].name})
+      this.setState ({ song5artist: reccs.tracks[4].artists[0].name})
+    }
+   
+    componentDidMount() {
+      this.getReccomended();
     }
 
     render() {
       return (
             <div class='entityContainer'>
               <h2 class='entityHeader'>{this.name}</h2>
-              <h4> some data </h4>
+              <h5 class='entityComponent recentlyPlayedSong'> 1. "<i>{this.state.song1title}</i>" - {this.state.song1artist}</h5>
+              <h5 class='entityComponent recentlyPlayedSong'> 2. "<i>{this.state.song2title}</i>" - {this.state.song2artist}</h5>
+              <h5 class='entityComponent recentlyPlayedSong'> 3. "<i>{this.state.song3title}</i>" - {this.state.song3artist}</h5>
+              <h5 class='entityComponent recentlyPlayedSong'> 4. "<i>{this.state.song4title}</i>" - {this.state.song4artist}</h5>
+              <h5 class='entityComponent recentlyPlayedSong'> 5. "<i>{this.state.song5title}</i>" - {this.state.song5artist}</h5>
             </div>
       );
     }
@@ -197,4 +251,4 @@ class OtherDataEntity extends React.Component {
 }
 
 
-export { StatisticsEntity, RecentlyPlayedEntity, DataEntity, OtherDataEntity }
+export { StatisticsEntity, RecentlyPlayedEntity, RecommendEntity, OtherDataEntity }
