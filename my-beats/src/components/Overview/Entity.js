@@ -154,11 +154,11 @@ class RecentlyPlayedEntity extends React.Component {
       return (
             <div class='entityContainer'>
               <h2 class='entityHeader'> {this.name} </h2>
-              <h5 class='entityComponent'> 1. "{this.state.song1title}" by {this.state.song1artist} </h5>
-              <h5 class='entityComponent'> 2. "{this.state.song2title}" by {this.state.song2artist}  </h5>
-              <h5 class='entityComponent'> 3. "{this.state.song3title}" by {this.state.song3artist}  </h5>
-              <h5 class='entityComponent'> 4. "{this.state.song4title}" by {this.state.song4artist}  </h5>
-              <h5 class='entityComponent'> 5. "{this.state.song5title}" by {this.state.song5artist}  </h5>
+              <h5 class='entityComponent recentlyPlayedSong'>"<i>{this.state.song1title}</i>" - {this.state.song1artist} </h5>
+              <h5 class='entityComponent recentlyPlayedSong'>"<i>{this.state.song2title}</i>" - {this.state.song2artist}  </h5>
+              <h5 class='entityComponent recentlyPlayedSong'>"<i>{this.state.song3title}</i>" - {this.state.song3artist}  </h5>
+              <h5 class='entityComponent recentlyPlayedSong'>"<i>{this.state.song4title}</i>" - {this.state.song4artist}  </h5>
+              <h5 class='entityComponent recentlyPlayedSong'>"<i>{this.state.song5title}</i>" - {this.state.song5artist}  </h5>
             </div>
       );
     }
