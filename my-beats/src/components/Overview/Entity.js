@@ -120,29 +120,38 @@ class RecentlyPlayedEntity extends React.Component {
         song1img: '',
         song2artist: '',
         song2title: '',
+        song2img: '',
         song3artist: '',
         song3title: '',
+        song3img: '',
         song4artist: '',
         song4title: '',
+        song4img: '',
         song5artist: '',
         song5title: '',
+        song5img: ''
         
       }
     }
 
     getRecentlyPlayed = async () => {
       const data = await userRecentlyPlayed;
-      this.setState({ song1artist: data.items[0].track.artists[0].name});
-      this.setState({ song2artist: data.items[1].track.artists[0].name});
-      this.setState({ song3artist: data.items[2].track.artists[0].name});
-      this.setState({ song4artist: data.items[3].track.artists[0].name});
-      this.setState({ song5artist: data.items[4].track.artists[0].name});
-      this.setState({ song1title: data.items[0].track.name});
-      this.setState({ song2title: data.items[1].track.name});
-      this.setState({ song3title: data.items[2].track.name});
-      this.setState({ song4title: data.items[3].track.name});
-      this.setState({ song5title: data.items[4].track.name});
-      this.setState({ song1img: data.items[0].track.album.images[2].url});
+      this.setState({ song1artist: data.items[0].track.artists[0].name,
+                      song2artist: data.items[1].track.artists[0].name,
+                      song3artist: data.items[2].track.artists[0].name,
+                      song4artist: data.items[3].track.artists[0].name,
+                      song5artist: data.items[4].track.artists[0].name,
+                      song1title: data.items[0].track.name,
+                      song2title: data.items[1].track.name,
+                      song3title: data.items[2].track.name,
+                      song4title: data.items[3].track.name,
+                      song5title: data.items[4].track.name,
+                      song1img: data.items[0].track.album.images[2].url,
+                      song2img: data.items[1].track.album.images[2].url,
+                      song3img: data.items[2].track.album.images[2].url,
+                      song4img: data.items[3].track.album.images[2].url,
+                      song5img: data.items[4].track.album.images[2].url,
+      });
     };
 
     componentDidMount() {
@@ -151,16 +160,23 @@ class RecentlyPlayedEntity extends React.Component {
 
     render() {
       return (
-            <div class='entityContainer'>
+            <div class='entityContainer wide'>
               <h2 class='entityHeader'> {this.name} </h2>
               <div class='songContainer'>
-                <img src={this.state.song1img} alt='song1_cover' class='songCover'></img>
-                <h5 class='entityComponent recentlyPlayedSong'>1. "<i>{this.state.song1title}</i>" - {this.state.song1artist}  </h5>
+                <h5 class='entityComponent recentlyPlayedSong'><img src={this.state.song1img} alt='song1_cover' class='songCover'></img>"<i>{this.state.song1title}</i>" - {this.state.song1artist}  </h5>
               </div>
-              <h5 class='entityComponent recentlyPlayedSong'>2. "<i>{this.state.song2title}</i>" - {this.state.song2artist}  </h5>
-              <h5 class='entityComponent recentlyPlayedSong'>3. "<i>{this.state.song3title}</i>" - {this.state.song3artist}  </h5>
-              <h5 class='entityComponent recentlyPlayedSong'>4. "<i>{this.state.song4title}</i>" - {this.state.song4artist}  </h5>
-              <h5 class='entityComponent recentlyPlayedSong'>5. "<i>{this.state.song5title}</i>" - {this.state.song5artist}  </h5>
+              <div class='songContainer'>
+                <h5 class='entityComponent recentlyPlayedSong'><img src={this.state.song2img} alt='song2_cover' class='songCover'></img>"<i>{this.state.song2title}</i>" - {this.state.song2artist}  </h5>
+              </div>
+              <div class='songContainer'>
+                <h5 class='entityComponent recentlyPlayedSong'><img src={this.state.song3img} alt='song3_cover' class='songCover'></img>"<i>{this.state.song3title}</i>" - {this.state.song3artist}  </h5>
+              </div>
+              <div class='songContainer'>
+                <h5 class='entityComponent recentlyPlayedSong'><img src={this.state.song4img} alt='song4_cover' class='songCover'></img>"<i>{this.state.song4title}</i>" - {this.state.song4artist}  </h5>
+              </div>
+              <div class='songContainer'>
+                <h5 class='entityComponent recentlyPlayedSong'><img src={this.state.song5img} alt='song5_cover' class='songCover'></img>"<i>{this.state.song5title}</i>" - {this.state.song5artist}  </h5>
+              </div>
             </div>
       );
     }
@@ -174,14 +190,19 @@ class RecommendEntity extends React.Component {
         seed_tracks: '',
         song1title: '',
         song1artist: '',
+        song1img: '',
         song2title: '',
         song2artist: '',
+        song2img: '',
         song3title: '',
         song3artist: '',
+        song3img: '',
         song4title: '',
         song4artist: '',
+        song4img: '',
         song5title: '',
-        song5artist: ''
+        song5artist: '',
+        song5img: ''
       }
     }
 
@@ -204,16 +225,22 @@ class RecommendEntity extends React.Component {
         return reccSongs;
         })
       console.log("done")
-      this.setState ({ song1title: reccs.tracks[0].name})
-      this.setState ({ song1artist: reccs.tracks[0].artists[0].name})
-      this.setState ({ song2title: reccs.tracks[1].name})
-      this.setState ({ song2artist: reccs.tracks[1].artists[0].name})
-      this.setState ({ song3title: reccs.tracks[2].name})
-      this.setState ({ song3artist: reccs.tracks[2].artists[0].name})
-      this.setState ({ song4title: reccs.tracks[3].name})
-      this.setState ({ song4artist: reccs.tracks[3].artists[0].name})
-      this.setState ({ song5title: reccs.tracks[4].name})
-      this.setState ({ song5artist: reccs.tracks[4].artists[0].name})
+      this.setState ({ song1title: reccs.tracks[0].name,
+                       song1artist: reccs.tracks[0].artists[0].name,
+                       song2title: reccs.tracks[1].name,
+                       song2artist: reccs.tracks[1].artists[0].name,
+                       song3title: reccs.tracks[2].name,
+                       song3artist: reccs.tracks[2].artists[0].name,
+                       song4title: reccs.tracks[3].name,
+                       song4artist: reccs.tracks[3].artists[0].name,
+                       song5title: reccs.tracks[4].name,
+                       song5artist: reccs.tracks[4].artists[0].name,
+                       song1img: reccs.tracks[0].album.images[2].url,
+                       song2img: reccs.tracks[1].album.images[2].url,
+                       song3img: reccs.tracks[2].album.images[2].url,
+                       song4img: reccs.tracks[3].album.images[2].url,
+                       song5img: reccs.tracks[4].album.images[2].url
+      })
     }
    
     componentDidMount() {
@@ -222,13 +249,23 @@ class RecommendEntity extends React.Component {
 
     render() {
       return (
-            <div class='entityContainer'>
+            <div class='entityContainer wide bottomEntity'>
               <h2 class='entityHeader'>{this.name}</h2>
-              <h5 class='entityComponent recentlyPlayedSong'> 1. "<i>{this.state.song1title}</i>" - {this.state.song1artist}</h5>
-              <h5 class='entityComponent recentlyPlayedSong'> 2. "<i>{this.state.song2title}</i>" - {this.state.song2artist}</h5>
-              <h5 class='entityComponent recentlyPlayedSong'> 3. "<i>{this.state.song3title}</i>" - {this.state.song3artist}</h5>
-              <h5 class='entityComponent recentlyPlayedSong'> 4. "<i>{this.state.song4title}</i>" - {this.state.song4artist}</h5>
-              <h5 class='entityComponent recentlyPlayedSong'> 5. "<i>{this.state.song5title}</i>" - {this.state.song5artist}</h5>
+              <div class='songContainer'>
+                <h5 class='entityComponent recentlyPlayedSong'><img src={this.state.song1img} alt='song1_cover' class='songCover'></img>"<i>{this.state.song1title}</i>" - {this.state.song1artist}  </h5>
+              </div>
+              <div class='songContainer'>
+                <h5 class='entityComponent recentlyPlayedSong'><img src={this.state.song2img} alt='song2_cover' class='songCover'></img>"<i>{this.state.song2title}</i>" - {this.state.song2artist}  </h5>
+              </div>
+              <div class='songContainer'>
+                <h5 class='entityComponent recentlyPlayedSong'><img src={this.state.song3img} alt='song3_cover' class='songCover'></img>"<i>{this.state.song3title}</i>" - {this.state.song3artist}  </h5>
+              </div>
+              <div class='songContainer'>
+                <h5 class='entityComponent recentlyPlayedSong'><img src={this.state.song4img} alt='song4_cover' class='songCover'></img>"<i>{this.state.song4title}</i>" - {this.state.song4artist}  </h5>
+              </div>
+              <div class='songContainer'>
+                <h5 class='entityComponent recentlyPlayedSong'><img src={this.state.song5img} alt='song5_cover' class='songCover'></img>"<i>{this.state.song5title}</i>" - {this.state.song5artist}  </h5>
+              </div>
             </div>
       );
     }
