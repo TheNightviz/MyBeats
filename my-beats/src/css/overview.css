@@ -46,6 +46,10 @@
   padding: 10px;
   margin: 20px;
 }
+.wide {
+  width: 840px;
+  height: 464px;
+}
 
 .entityHeader {
   color: #F2C75C;
@@ -65,19 +69,20 @@
 .recentlyPlayedSong {
   display: inline;
   float: right;
-  width: 360px;
+  width: 100%;
   margin-bottom: 12px;
   white-space: nowrap;
   overflow-x: auto;
-}
-
-.songContainer {
-
+  height:70px;
+  line-height: 64px;
+  text-align: center;
 }
 
 .songCover {
   display: inline;
   float: left;
+  margin-left: 15px;
+  margin-right: 15px;
   width: 64px;
   height: 64px;
 }
