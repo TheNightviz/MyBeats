@@ -1,8 +1,7 @@
 .overviewPageContainer {
   position: relative;
   background-color: #41444B;
-  min-height: 150px;
-  height: 100vw;
+  min-height: auto;
   width: auto;
 }
 
@@ -49,6 +48,10 @@
 .wide {
   width: 840px;
   height: 464px;
+}
+
+.bottomEntity {
+  margin-bottom: 100px;
 }
 
 .entityHeader {

@@ -249,7 +249,7 @@ class RecommendEntity extends React.Component {
 
     render() {
       return (
-            <div class='entityContainer wide'>
+            <div class='entityContainer wide bottomEntity'>
               <h2 class='entityHeader'>{this.name}</h2>
               <div class='songContainer'>
                 <h5 class='entityComponent recentlyPlayedSong'><img src={this.state.song1img} alt='song1_cover' class='songCover'></img>"<i>{this.state.song1title}</i>" - {this.state.song1artist}  </h5>
