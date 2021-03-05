@@ -10,18 +10,24 @@ const ArtistGraph = () => {
   const chart = () => {
     let empSal = [];
     let empAge = [];
-    let userAccessToken = localStorage.getItem('spotifyToken');
+    var results = [];
     console.log("TEST1");
-    const options = {
-      method : 'GET',
-      url : 'https://api.spotify.com/v1/me/top/artists',
-      headers: {'Authorization': 'Bearer ' + userAccessToken}
-    }
-    axios(options)
-      .then(res => {
-        console.log("TEST2");
-        console.log(res.data);
-        for (const dataObj of res.data.data) {
+
+    var userAccessToken = localStorage.getItem('spotifyToken');
+    var getRequest = 'https://api.spotify.com/v1/me/top/tracks';
+    // API endpoint
+    console.log("TOP TRACKS:");
+    fetch(getRequest, {
+        headers: {'Authorization': 'Bearer ' + userAccessToken}
+    }).then(response => response.json()).then((data) => {
+        console.log(data);
+        return data;
+    });
+ };
+
+
+      /*
+        for (const dataObj of res.items) {
           empSal.push(parseInt(dataObj.employee_salary));
           empAge.push(parseInt(dataObj.employee_age));
         }
@@ -43,6 +49,9 @@ const ArtistGraph = () => {
     console.log(empSal, empAge);
   };
 
+
+ */
+
   useEffect(() => {
     chart();
   }, []);
@@ -62,7 +71,7 @@ const ArtistGraph = () => {
           }
         />
       </div>
-    </div>
+    </div>   
   );
 };
 
