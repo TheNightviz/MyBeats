@@ -1,0 +1,52 @@
+#contentContainer {
+    align-items: center;
+}
+
+.userProfilePicture {
+    display: block;
+    height: 128px;
+    width: auto;
+    border-radius: 64px;
+    background-color: #f6f4e6;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 10px;
+}
+
+.display_name {
+    color: #F2C75C;
+    text-align: center;
+}
+
+.profileData {
+    min-width: 500px;
+    width: 50%;
+    height: 50px;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: transparent;
+    border: #F2C75C;
+    border-style: inset;
+    border-radius: 25px;
+    border-width: 3px;
+    color: #f6f4e6;
+    text-align: center;
+    overflow-x: auto;
+    font-size: 28px;
+}
+
+#editAccount {
+    display: block;
+    min-width: 100px;
+    width: 35%;
+    border-radius: 64px;
+    margin: auto;
+    margin-top: 40px;
+    margin-bottom: 10px;
+}
+#editAccount:hover {
+    background-color: #F2C75C;
+    color: #41444B;
+    font-style: none;
+}

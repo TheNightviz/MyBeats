@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../css/index.css';
+import '../../css/account.css';
 
 
 
@@ -18,33 +18,41 @@ class AccountData extends React.Component {
        display_name: "",
        email: "",
        country: "",
-       premium: ""
+       premium: "Free",
+       prof_pic: "/Photos/spotifyicon.png"
      };
    }
 
    //updates username to spotify display name
-   getSpotifyUsername = async () => {
+   getSpotifyUserAccountData = async () => {
        const data = await userProfileData;
        this.setState({ 
           display_name: data.display_name,
           email: data.email,
-          country: data.country,
-          premium: data.premium
-           
-      
-      });
+          country: data.country
+       });
+       if (data.product === "premium") {
+          this.setState({premium: "Premium"});
+       }
+       if (data.images.length != 0) {
+          this.setState({prof_pic: data.images[0].url})
+       }
    };
 
    //calls getSpotifyUsername when component is rendered
    componentDidMount() {
-     this.getSpotifyUsername();
+     this.getSpotifyUserAccountData();
    }
 
    render() {
       return(
-         <div id="AccountImage">
-            <img src = '../../../public/Photos/spotifyicon.png' alt='user-profile-picture' style={{padding:'400px', width:'500px', height:'500px', borderRadius: '400px'}}></img>
-            <h1>Hello "user"</h1>
+         <div id="contentContainer">
+            <img src={this.state.prof_pic} alt='user-profile-picture' class="userProfilePicture"></img>
+            <h1 class="display_name">{this.state.display_name}</h1>
+            <h2 class="profileData">Email: {this.state.email}</h2>
+            <h2 class="profileData">Location: {this.state.country}</h2>
+            <h2 class="profileData">Plan: {this.state.premium}</h2>
+            <a href="https://www.spotify.com/us/account/profile/" class="profileData" id="editAccount">edit profile</a>
          </div>
       )
    }
