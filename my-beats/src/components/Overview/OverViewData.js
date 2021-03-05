@@ -1,7 +1,7 @@
 import React from 'react';
 import '../../css/overview.css';
 
-const { StatisticsEntity, RecentlyPlayedEntity, DataEntity, OtherDataEntity } = require('./Entity.js');
+const { StatisticsEntity, RecentlyPlayedEntity, RecommendEntity, OtherDataEntity } = require('./Entity.js');
 
 
 const OverViewData = () => {
@@ -14,7 +14,7 @@ const OverViewData = () => {
            <div class="overviewEntitiesContainer">
              <StatisticsEntity name="Statistics" />
              <RecentlyPlayedEntity name="Recently Played" />
-             <DataEntity name="Data" />
+             <RecommendEntity name="Recommended Tracks" />
              <OtherDataEntity name="Other Data" />
            </div>
        </div>
