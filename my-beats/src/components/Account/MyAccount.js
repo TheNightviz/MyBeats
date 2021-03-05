@@ -1,6 +1,8 @@
 import React from 'react';
 import UserNav from '../UserNav';
 import BottomFooter from '../BottomFooter';
+import AccountImage from './AccountImage';
+import '../../css/index.css';
 
 const MyAccount = () =>
 {
@@ -9,10 +11,12 @@ const MyAccount = () =>
        console.log("--Done logging--");
        return(
        <div class='pageContainer'>
-           <UserNav />
-           <h1>This is MyAccount</h1>
-           <BottomFooter />
-       </div>)
+        <UserNav />
+        <AccountImage />   
+             
+        <BottomFooter />
+       </div>
+       )
 
 }
 
