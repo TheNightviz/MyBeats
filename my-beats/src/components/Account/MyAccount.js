@@ -1,7 +1,7 @@
 import React from 'react';
 import UserNav from '../UserNav';
 import BottomFooter from '../BottomFooter';
-import AccountImage from './AccountImage';
+import AccountData from './AccountData';
 import '../../css/index.css';
 
 const MyAccount = () =>
@@ -12,7 +12,7 @@ const MyAccount = () =>
        return(
        <div class='pageContainer'>
         <UserNav />
-        <AccountImage />   
+        <AccountData />   
              
         <BottomFooter />
        </div>
