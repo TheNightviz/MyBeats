@@ -44,17 +44,19 @@ function getAccessToken() {
     console.log(queryString);
     var accessToken = queryString.slice(14, queryString.length);
     console.log(accessToken);
-    localStorage.setItem('spotifyToken', accessToken);
+    // localStorage.setItem('spotifyToken', accessToken);
+    localStorage.setItem('spotifyToken', '');
     return accessToken;
 }
-
-fetchDataTest();
 
 /* DOCUMENTATION FOR GETTING DATA
 
 fetch(API_ENDPOINT)
 
 */
+
+/*
+fetchDataTest();
 
 function fetchDataTest() {
     var accessToken = localStorage.getItem('spotifyToken');
@@ -87,6 +89,7 @@ function fetchDataTest() {
         return data;
     })
 }
+**/
 
 //Gets users top artists
 function getTopArtists() {

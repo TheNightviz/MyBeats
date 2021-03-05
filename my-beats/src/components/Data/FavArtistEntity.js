@@ -13,7 +13,8 @@ const artistData = {
         backgroundColor: "#f2C75C",
         borderColor: "rgba(33,33,33, 1)"
       }
-    ]
+    ],
+    
   };
 
 

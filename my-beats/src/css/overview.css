@@ -1,9 +1,9 @@
 .overviewPageContainer {
   position: relative;
   background-color: #41444B;
-  min-height: 650px;
+  min-height: 150px;
   height: 100vw;
-  width: 101vw;
+  width: auto;
 }
 
 .overviewHeader {
@@ -42,11 +42,71 @@
   color: #f6f4e6;
   text-align: center;
   width: 400px;
-  height: 250px;
+  height: 350px;
   padding: 10px;
   margin: 20px;
 }
 
 .entityHeader {
   color: #F2C75C;
+}
+
+.entityComponent {
+  float: left;
+  text-align: left;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.righttextalign {
+  float: right;
+}
+
+.recentlyPlayedSong {
+  display: inline;
+  float: right;
+  width: 360px;
+  margin-bottom: 12px;
+  white-space: nowrap;
+  overflow-x: auto;
+}
+
+.songContainer {
+
+}
+
+.songCover {
+  display: inline;
+  float: left;
+  width: 64px;
+  height: 64px;
+}
+
+::-webkit-scrollbar {
+  height: 5px;
+  width: 10px;
+  background: #41444B;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.4);
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.4);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(33,33,33, .6); 
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #F2C75C; 
+}
+
+::-webkit-scrollbar-button {
+  width: 5px;
+}
+
+::-webkit-scrollbar-corner {
+  color: #41444B;
 }

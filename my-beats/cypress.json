@@ -4,6 +4,9 @@
     "integrationFolder": "src/cypress/support/integration",
     "supportFile": "src/cypress/support/index.js",
     "pluginFile": "src/cypress/plugins/index.js",
-    "fixturesFolder": false
-   }
-   
+    "fixturesFolder": false ,
+    "baseUrl": "http://localhost:3000"
+ 
+ 
+ 
+}
