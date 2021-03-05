@@ -8,6 +8,7 @@ npm install --save html-to-image
 npm install chart.js --save
 npm install --save react-chartjs-2 chart.js
 npm install -S react-router-dom
+npm install react-router-dom --save
 npm install --save firebase
 npm install react-bootstrap bootstrap
 npm install materialize-css@next
