@@ -13,7 +13,7 @@ const OverViewData = () => {
             You can also check out more stats on the <a id="mydatalink" href='/MyData'>MyData page</a>.</h5>
            <div class="overviewEntitiesContainer">
              <StatisticsEntity name="Statistics" />
-             <OtherDataEntity name="Other Data" />
+             <OtherDataEntity name="Average Attributes" />
              <RecentlyPlayedEntity name="Recently Played" />
              <RecommendEntity name="Recommended Tracks" />
            </div>
