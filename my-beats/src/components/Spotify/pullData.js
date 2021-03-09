@@ -12,15 +12,6 @@ export const pullGenreData = function() {
 });
 }
 */
-// Grabs URL after 'OverView' and parses access token. Will return empty string if user not logged in - shouldnt need
-export const getAccessToken = function() {
-    var queryString = window.location.search;
-    console.log(queryString);
-    var accessToken = queryString.slice(14, queryString.length);
-    console.log(accessToken);
-    localStorage.setItem('spotifyToken', accessToken);
-    return accessToken;
-}
 
 //function to pull genre data from seed reccomendations
 export const pullGenreData = function() {
