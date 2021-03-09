@@ -20,7 +20,7 @@ const OverView = () =>
 
 //Checks if user is connected to Spotify by using localStorage to handle showing ConnectAlert
 function ShowConnectAlert() {
-    var accessToken = localStorage.getItem('spotifyToken')
+    var accessToken = localStorage.getItem('spotifyToken');
     if(accessToken === ''){
         if (getAccessToken() === '') {
             return <ConnectAlert />;
@@ -30,6 +30,7 @@ function ShowConnectAlert() {
             headers: {'Authorization': 'Bearer ' + accessToken}
         }).then(function(response){
             if (!response.ok){
+                console.log("token was not valid");
                 localStorage.setItem('spotifyToken', "");
                 return <ConnectAlert />;
             }
@@ -44,8 +45,8 @@ function getAccessToken() {
     console.log(queryString);
     var accessToken = queryString.slice(14, queryString.length);
     console.log(accessToken);
-    // localStorage.setItem('spotifyToken', accessToken);
-    localStorage.setItem('spotifyToken', '');
+    localStorage.setItem('spotifyToken', accessToken);
+    //localStorage.setItem('spotifyToken', '');
     return accessToken;
 }
 

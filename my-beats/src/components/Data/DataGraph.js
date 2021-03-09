@@ -4,66 +4,85 @@ import axios from "axios";
 
 const ArtistGraph = () => {
   const [chartData, setChartData] = useState({});
-  const [employeeSalary, setEmployeeSalary] = useState([]);
-  const [employeeAge, setEmployeeAge] = useState([]);
+  const [numSongs, setNumSongs] = useState([]);
+  const [topArtists, setTopArtists] = useState([]);
 
   const chart = () => {
-    let empSal = [];
-    let empAge = [];
-    var results = [];
+    let topArtists = {};
+    var artistLabels = [];
+    let numSongs = [5];
+    let userAccessToken = localStorage.getItem('spotifyToken');
     console.log("TEST1");
+    const optionsArtists = {
+      method : 'GET',
+      url : 'https://api.spotify.com/v1/me/top/artists?time_range=long_term&limit=10',
+      headers: {
+        'Accept':'application/json',
+        'Content-Type':'application/json',
+        'Authorization': 'Bearer ' + userAccessToken,
+      }
+    }
+    const optionsTracks = {
+      method : 'GET',
+      url : 'https://api.spotify.com/v1/me/top/tracks?time_range=long_term',
+      headers: {
+        'Accept':'application/json',
+        'Content-Type':'application/json',
+        'Authorization': 'Bearer ' + userAccessToken,
+      }
+    }
 
-    var userAccessToken = localStorage.getItem('spotifyToken');
-    var getRequest = 'https://api.spotify.com/v1/me/top/tracks';
-    // API endpoint
-    console.log("TOP TRACKS:");
-    fetch(getRequest, {
-        headers: {'Authorization': 'Bearer ' + userAccessToken}
-    }).then(response => response.json()).then((data) => {
-        console.log(data);
-        return data;
-    });
- };
-
-
-      /*
-        for (const dataObj of res.items) {
-          empSal.push(parseInt(dataObj.employee_salary));
-          empAge.push(parseInt(dataObj.employee_age));
+    axios(optionsArtists)
+      .then(res => {
+        var currArtists;
+        console.log("DataGraph: Top Artists (50)");
+        console.log(res);
+        for (const artistItem of res.data.items){
+          topArtists[artistItem.name] = 0;
+          console.log(artistItem.name);
         }
+        axios(optionsTracks)
+        .then(res2 => {
+          console.log("results tracks");
+          for (const artist of res2.data.items.artists){
+              if (artist.name in topArtists)
+                topArtists[artist.name] = topArtists[artist.name] + 1;
+          }
+          console.log(res2);
+        })
+        .then(
         setChartData({
-          labels: empAge,
+          labels: topArtists,
           datasets: [
             {
               label: "Songs",
-              data: empSal,
+              data: numSongs,
               backgroundColor: ["rgba(75, 192, 192, 0.6)"],
               borderWidth: 4
             }
           ]
-        });
+        }));
+        console.log("end process");
+        console.log(topArtists, numSongs);
       })
       .catch(err => {
         console.log(err);
       });
-    console.log(empSal, empAge);
-  };
-
-
- */
+ };
 
   useEffect(() => {
     chart();
   }, []);
+
   return (
     <div className="App">
-      <h1>Top Genres</h1>
+      <h1>Top Artists</h1>
       <div>
         <Bar
           data={chartData}
           options={{
             responsive: true,
-            title: { text: "Genres", display: false },
+            title: { text: "Artists", display: false },
             fill: true,
             backgroundColor: "#f2C75C",
             borderColor: "rgba(33,33,33, 1)"
@@ -76,8 +95,10 @@ const ArtistGraph = () => {
 };
 
 export default ArtistGraph;
+
+
 /*
-//Gets users top artists
+//Gets users top artists, old version
 
 function getTopArtists() {
     var returnValue = {};
