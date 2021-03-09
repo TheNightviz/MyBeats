@@ -9,7 +9,6 @@ import { get } from 'request';
 
 const OverView = () =>
 {
-
        return( <div class='pageContainer'>
            <UserNav />
            <ShowConnectAlert />
