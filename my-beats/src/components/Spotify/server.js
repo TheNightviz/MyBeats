@@ -37,7 +37,6 @@ app.get('/callback', function(req, res) {
     json: true
   }
   request.post(authOptions, function(error, response, body) {
-    localStorage.setItem('firstLogin', true);
     var access_token = body.access_token
     let uri = process.env.FRONTEND_URI || 'http://localhost:3000/OverView'
     res.redirect(uri + '?access_token=' + access_token)
