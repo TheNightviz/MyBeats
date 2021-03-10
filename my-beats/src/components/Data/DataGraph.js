@@ -78,7 +78,7 @@ const ArtistGraph = () => {
             {
               label: "Songs",
               data: numSongs,
-              backgroundColor: ["#f2C75C","#f2C75C","#f2C75C","#f2C75C","#f2C75C","#f2C75C","#f2C75C","#f2C75C","#f2C75C","#f2C75C"],
+              backgroundColor: "#f2C75C",
               borderWidth: 4
             }
           ]
@@ -89,6 +89,7 @@ const ArtistGraph = () => {
       .catch(err => {
         console.log(err);
       });
+
  };
 
   useEffect(() => {
@@ -97,7 +98,6 @@ const ArtistGraph = () => {
 
   return (
     <div className="App">
-      <h1>Top Artists</h1>
       <div>
         <Bar
           data={chartData}

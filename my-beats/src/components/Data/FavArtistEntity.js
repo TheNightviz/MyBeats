@@ -1,6 +1,6 @@
 import React from 'react';
 import FavArtistText from './FavArtistText';
-import { Bar } from "react-chartjs-2";
+import DataGraph from './DataGraph';
 
 
 const artistData = {
@@ -24,9 +24,7 @@ const artistData = {
     return(
       <div class = 'myArtistContainer' id="artist">
         <FavArtistText />
-        <Bar 
-              data={artistData}
-            />
+        <DataGraph />
         </div>
     )
   
