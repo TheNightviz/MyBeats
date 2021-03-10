@@ -82,10 +82,12 @@ class StatisticsEntity extends React.Component {
 
     //updates components when component is rendered
     componentDidMount() {
-      this.getSpotifyFollowers();
-      this.getSavedTracks();
-      this.getSavedAlbums();
-      this.getRecentlyPlayed();
+      if (localStorage.getItem('isLoggedIn') === 'true') {
+         this.getSpotifyFollowers();
+         this.getSavedTracks();
+         this.getSavedAlbums();
+         this.getRecentlyPlayed();
+      }
     }
 
     render() {
@@ -166,7 +168,9 @@ class RecentlyPlayedEntity extends React.Component {
     };
 
     componentDidMount() {
-      this.getRecentlyPlayed();
+      if (localStorage.getItem('isLoggedIn') === 'true') {
+        this.getRecentlyPlayed();
+      }
     }
 
     render() {
@@ -253,7 +257,9 @@ class RecommendEntity extends React.Component {
     }
    
     componentDidMount() {
-      this.getReccomended();
+      if (localStorage.getItem('isLoggedIn') === 'true') {
+         this.getReccomended();
+      }
     }
 
     render() {
@@ -302,7 +308,8 @@ class OtherDataEntity extends React.Component {
         const data = await userSavedTracks;
         var i = 0;
         this.setState ({seed_tracks: data.items[0].track.id})
-        for (i=1; i<50; i++) {
+        var numSongs = Math.min(data.total, 50);
+        for (i=1; i<numSongs; i++) {
           this.setState ({ seed_tracks: this.state.seed_tracks + '%2C'+ data.items[i].track.id})
         }
         const tracks = await fetch('https://api.spotify.com/v1/audio-features?ids=' + this.state.seed_tracks, {
@@ -312,7 +319,7 @@ class OtherDataEntity extends React.Component {
         console.log(tracks);
         return tracks;
         })
-        for (i=0; i<50; i++)
+        for (i=0; i<numSongs; i++)
         {
           this.setState ({_dancability: this.state._dancability + tracks.audio_features[i].danceability,
                           _energy: this.state._energy + tracks.audio_features[i].energy,
@@ -324,10 +331,21 @@ class OtherDataEntity extends React.Component {
                           _tempo: this.state._tempo + tracks.audio_features[i].tempo
           })
         }
+        this.setState ({    _dancability: this.state._dancability/numSongs,
+          _energy: this.state._energy/numSongs,
+          _speechiness: this.state._speechiness/numSongs,
+          _acousticness: this.state._acousticness/numSongs,
+          _instrumentalness: this.state._instrumentalness/numSongs,
+          _liveness: this.state._liveness/numSongs,
+          _valence: this.state._valence/numSongs,
+          _tempo: this.state._tempo/numSongs
+        })
     }
 
     componentDidMount() {
-      this.addAttributes();
+      if (localStorage.getItem('isLoggedIn') === 'true') {
+         this.addAttributes();
+      }
     }
 
     render() {
@@ -335,31 +353,31 @@ class OtherDataEntity extends React.Component {
             <div class='entityContainer'>
               <h2 class='entityHeader'>{this.name}</h2>
               <div>
-                <h5 class='entityComponent'>Dancability: </h5><h5 class='entityComponent righttextalign'>{Math.round(2*this.state._dancability)}/100</h5>
+                <h5 class='entityComponent'>Dancability: </h5><h5 class='entityComponent righttextalign'>{Math.round(100*this.state._dancability)}/100</h5>
               </div>
               <div style={{clear: 'both'}}></div>
               <div>
-                <h5 class='entityComponent'>Energy: </h5><h5 class='entityComponent righttextalign'>{Math.round(2*this.state._energy)}/100</h5>
+                <h5 class='entityComponent'>Energy: </h5><h5 class='entityComponent righttextalign'>{Math.round(100*this.state._energy)}/100</h5>
               </div>
               <div style={{clear: 'both'}}></div>
               <div>
-                <h5 class='entityComponent'>Acousticness: </h5><h5 class='entityComponent righttextalign'>{Math.round(2*this.state._acousticness)}/100</h5>
+                <h5 class='entityComponent'>Acousticness: </h5><h5 class='entityComponent righttextalign'>{Math.round(100*this.state._acousticness)}/100</h5>
               </div>
               <div style={{clear: 'both'}}></div>
               <div>
-                <h5 class='entityComponent'>Instrumentalness: </h5><h5 class='entityComponent righttextalign'>{Math.round(2*this.state._instrumentalness)}/100</h5>
+                <h5 class='entityComponent'>Instrumentalness: </h5><h5 class='entityComponent righttextalign'>{Math.round(100*this.state._instrumentalness)}/100</h5>
               </div>
               <div style={{clear: 'both'}}></div>
               <div>
-                <h5 class='entityComponent'>Liveness: </h5><h5 class='entityComponent righttextalign'>{Math.round(2*this.state._liveness)}/100</h5>
+                <h5 class='entityComponent'>Liveness: </h5><h5 class='entityComponent righttextalign'>{Math.round(100*this.state._liveness)}/100</h5>
               </div>
               <div style={{clear: 'both'}}></div>
               <div>
-                <h5 class='entityComponent'>Valence: </h5><h5 class='entityComponent righttextalign'>{Math.round(2*this.state._valence)}/100</h5>
+                <h5 class='entityComponent'>Valence: </h5><h5 class='entityComponent righttextalign'>{Math.round(100*this.state._valence)}/100</h5>
               </div>
               <div style={{clear: 'both'}}></div>
               <div>
-                <h5 class='entityComponent'>Tempo (beats per minute): </h5><h5 class='entityComponent righttextalign'>{Math.round(this.state._tempo/50)} bpm</h5>
+                <h5 class='entityComponent'>Tempo (beats per minute): </h5><h5 class='entityComponent righttextalign'>{Math.round(this.state._tempo)} bpm</h5>
               </div>
               <div style={{clear: 'both'}}></div>
             </div>
