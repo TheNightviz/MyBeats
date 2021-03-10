@@ -12,6 +12,7 @@ const ArtistGraph = () => {
   const chart = () => {
     let topArtists = {};
     var artistLabels = [];
+    var offsetCount = 5;
     let numSongs = [];
     let userAccessToken = localStorage.getItem('spotifyToken');
     const optionsArtists = {
@@ -25,7 +26,7 @@ const ArtistGraph = () => {
     }
     const optionsTracks = {
       method : 'GET',
-      url : 'https://api.spotify.com/v1/me/top/tracks?time_range=long_term&offset=5',
+      url : 'https://api.spotify.com/v1/me/top/tracks?time_range=long_term&offset=' + offsetCount,
       headers: {
         'Accept':'application/json',
         'Content-Type':'application/json',
@@ -89,6 +90,7 @@ const ArtistGraph = () => {
       .catch(err => {
         console.log(err);
       });
+
  };
 
   useEffect(() => {

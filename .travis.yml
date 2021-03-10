@@ -2,12 +2,11 @@ language: node_js
 node_js:
 - 12.19.0
 cache: npm
-
-install:
-- npm install
+cypress:
+- 6.6.0
 
 script:
-- npm start
+- npm run cypress :open
 
 deploy:
  provider: pages
