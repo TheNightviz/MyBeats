@@ -7,12 +7,12 @@ const ArtistGraph = () => {
   const [numSongs, setNumSongs] = useState([]);
   const [topArtists, setTopArtists] = useState([]);
 
+  //create dynamic chart, populates with data (currently for top artists by # of tracks listened to)
   const chart = () => {
     let topArtists = {};
     var artistLabels = [];
-    let numSongs = [5];
+    let numSongs = [];
     let userAccessToken = localStorage.getItem('spotifyToken');
-    console.log("TEST1");
     const optionsArtists = {
       method : 'GET',
       url : 'https://api.spotify.com/v1/me/top/artists?time_range=long_term&limit=10',
@@ -24,7 +24,7 @@ const ArtistGraph = () => {
     }
     const optionsTracks = {
       method : 'GET',
-      url : 'https://api.spotify.com/v1/me/top/tracks?time_range=long_term',
+      url : 'https://api.spotify.com/v1/me/top/tracks?time_range=long_term&offset=5',
       headers: {
         'Accept':'application/json',
         'Content-Type':'application/json',
@@ -32,36 +32,56 @@ const ArtistGraph = () => {
       }
     }
 
+    //runs axios for top artists, populates topArtists dictionary and artistLabels array
     axios(optionsArtists)
       .then(res => {
-        var currArtists;
+        var artistName;
+        var artistLabels = [];
         console.log("DataGraph: Top Artists (50)");
         console.log(res);
         for (const artistItem of res.data.items){
+          artistLabels.push(artistItem.name);
           topArtists[artistItem.name] = 0;
           console.log(artistItem.name);
         }
+        //runs axios for top tracks, parses for each track and if in top artists, increments data
         axios(optionsTracks)
         .then(res2 => {
           console.log("results tracks");
-          for (const artist of res2.data.items.artists){
-              if (artist.name in topArtists)
-                topArtists[artist.name] = topArtists[artist.name] + 1;
+          for (const trackItem of res2.data.items){
+            console.log("TRACK ITEM");
+            console.log(trackItem);
+            for (var i=0; i < trackItem.artists.length; i++){
+              console.log("artist");
+              console.log(trackItem.artists[i].name);
+              artistName = trackItem.artists[i].name;
+              if (artistName in topArtists){
+                console.log("found " + artistName);
+                topArtists[artistName] = topArtists[artistName] + 1;
+              }
+            }
+          }
+          for (var x = 0; x < artistLabels.length; x++){
+            numSongs.push(topArtists[(artistLabels[x])]);
           }
           console.log(res2);
+          console.log("num list");
+          console.log(numSongs);
+          console.log(artistLabels);
         })
-        .then(
+        .then(test =>
+        {
         setChartData({
-          labels: topArtists,
+          labels: artistLabels,
           datasets: [
             {
               label: "Songs",
               data: numSongs,
-              backgroundColor: ["rgba(75, 192, 192, 0.6)"],
+              backgroundColor: ["#f2C75C"],
               borderWidth: 4
             }
           ]
-        }));
+        })});
         console.log("end process");
         console.log(topArtists, numSongs);
       })
