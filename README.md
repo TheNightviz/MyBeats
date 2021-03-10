@@ -23,3 +23,4 @@ We will be adhering to [this styleguide](https://google.github.io/styleguide/jsg
 
 # Static Analysis Report:
 Our static Analysis report can be found [here](https://github.com/TheNightviz/MyBeats/blob/master/STATIC_ANALYSIS.md)
+
