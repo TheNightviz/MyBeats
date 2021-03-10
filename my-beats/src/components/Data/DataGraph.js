@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Bar } from "react-chartjs-2";
 import axios from "axios";
+import { scales } from "react-chartjs-2";
 
 const ArtistGraph = () => {
   const [chartData, setChartData] = useState({});
@@ -77,7 +78,7 @@ const ArtistGraph = () => {
             {
               label: "Songs",
               data: numSongs,
-              backgroundColor: ["#f2C75C"],
+              backgroundColor: "#f2C75C",
               borderWidth: 4
             }
           ]
@@ -96,7 +97,6 @@ const ArtistGraph = () => {
 
   return (
     <div className="App">
-      <h1>Top Artists</h1>
       <div>
         <Bar
           data={chartData}
@@ -105,7 +105,29 @@ const ArtistGraph = () => {
             title: { text: "Artists", display: false },
             fill: true,
             backgroundColor: "#f2C75C",
-            borderColor: "rgba(33,33,33, 1)"
+            borderColor: "rgba(33,33,33, 1)",
+            scales: {
+              yAxes: [{
+                ticks: {
+                  fontColor: "white",
+                  min: 0,
+                },
+              scaleLabel: {
+                display: true,
+                labelString: 'Number of Songs listened to by this Artist',
+                fontColor: "white"
+              },
+              xAxis: [{
+                ticks: {
+                  fontColor: "white"
+                },
+                scaleLabel: {
+                  display: true,
+                  fontColr: "white"
+                }
+              }]
+              }]
+            }
             }
           }
         />
@@ -114,7 +136,123 @@ const ArtistGraph = () => {
   );
 };
 
-export default ArtistGraph;
+
+const GenreGraph = () => {
+  const [chartData, setChartData] = useState({});
+  const [numSongs, setNumSongs] = useState([]);
+  const [topArtists, setTopArtists] = useState([]);
+
+  //create dynamic chart, populates with data (currently for top artists by # of tracks listened to)
+  const chart = () => {
+    let topGenres = {};
+    let numGenres = [];
+    let userAccessToken = localStorage.getItem('spotifyToken');
+    const optionsArtists = {
+      method : 'GET',
+      url : 'https://api.spotify.com/v1/me/top/artists?time_range=long_term&limit=10',
+      headers: {
+        'Accept':'application/json',
+        'Content-Type':'application/json',
+        'Authorization': 'Bearer ' + userAccessToken,
+      }
+    }
+
+    //runs axios for top artists, populates topArtists dictionary and artistLabels array
+    axios(optionsArtists)
+      .then(res => {
+        var artistGenres = [];
+        console.log("DataGraph: Top Artists (50)");
+        console.log(res);
+        for (const artistItem of res.data.items){
+          topArtists[artistItem.name] = 0;
+          for (var i=0; i < artistItem.genres.length; i++){
+            if(artistItem.genres[i] in topGenres){
+              topGenres[artistItem.genres[i]] = topGenres[artistItem.genres[i]] + 1;
+            }
+            else{
+              artistGenres.push(artistItem.genres[i]);
+              topGenres[artistItem.genres[i]] = 1;
+            }
+          }
+        }
+        console.log("Genre List");
+        console.log(topGenres);
+        for (var y = 0; y < artistGenres.length; y++){
+          numGenres.push(topGenres[(artistGenres[y])]);
+        }
+        console.log(numGenres, artistGenres);
+
+        //runs axios for top tracks, parses for each track and if in top artists, increments data
+        axios(optionsArtists)
+        .then(test =>
+        {
+        setChartData({
+          labels: artistGenres,
+          datasets: [
+            {
+              label: "Songs",
+              data: numGenres,
+              backgroundColor: "#f2C75C",
+              borderWidth: 4
+            }
+          ]
+        })});
+        console.log("end process");
+        console.log(topArtists, numSongs);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+ };
+
+  useEffect(() => {
+    chart();
+  }, []);
+
+  return (
+    <div className="App">
+      <div>
+        <Bar
+          data={chartData}
+          options={{
+            responsive: true,
+            title: { text: "Genres", display: false },
+            fill: true,
+            backgroundColor: "#f2C75C",
+            borderColor: "rgba(33,33,33, 1)",
+            scaleFontColor: "white",
+            scales: {
+              yAxes: [{
+                ticks: {
+                  fontColor: "white",
+                  min: 0,
+                  stepSize: 1
+                },
+              scaleLabel: {
+                display: true,
+                fontColor: "white",
+                labelString: 'Number of Artists in this Genre'
+              }
+              }],
+              xAxis: [{
+                ticks: {
+                  fontColor: "white"
+                },
+                scaleLabel: {
+                  display: true,
+                  fontColr: "white"
+                }
+              }]
+            }
+            }
+          }
+        />
+      </div>
+    </div>   
+  );
+};
+
+export { ArtistGraph, GenreGraph }
 
 
 /*

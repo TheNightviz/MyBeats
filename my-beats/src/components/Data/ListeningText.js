@@ -10,7 +10,7 @@ const ListeningText = () => {
            </p>
 
            <p class='myDataTextContent2'>
-           For your convenience, we've sorted the number of hours listened each month <br />
+           <br />
            </p>
 
        </div>

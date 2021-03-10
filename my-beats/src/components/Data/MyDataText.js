@@ -10,7 +10,7 @@ const MyDataText = () => {
            </p>
 
            <p class='myDataTextContent2'>
-           For your convenience, we've sorted them by number the number of songs you listened to in that genre <br />
+           We get these genres based on your top artists! <br />
            </p>
 
        </div>

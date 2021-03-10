@@ -11,7 +11,29 @@ const data = {
       data: [65, 42, 38, 32, 28, 15, 5],
       fill: true,
       backgroundColor: "#f2C75C",
-      borderColor: "rgba(33,33,33, 1)"
+      borderColor: "rgba(33,33,33, 1)",
+      scales: {
+        yAxes: [{
+          ticks: {
+            fontColor: "white",
+            min: 0,
+            stepSize: 1
+          },
+        scaleLabel: {
+          display: true,
+          fontColor: "white",
+        }
+        }],
+        xAxis: [{
+          ticks: {
+            fontColor: "white"
+          },
+          scaleLabel: {
+            display: true,
+            fontColr: "white"
+          }
+        }]
+      }
     }
   ]
 };

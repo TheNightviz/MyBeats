@@ -10,7 +10,7 @@ const FavArtistText = () => {
            </p>
 
            <p class='myDataTextContent2'>
-           For your convenience, we've sorted them by the numer of songs you listened to from that artist <br />
+            We get these artists based on your top artists and songs! <br />
            </p>
 
        </div>

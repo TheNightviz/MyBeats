@@ -10,7 +10,7 @@ const FavSongText = () => {
            </p>
 
            <p class='myDataTextContent2'>
-           For your convenience, we've sorted them by the song you listened to the most<br />
+           <br />
            </p>
 
        </div>
