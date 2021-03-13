@@ -3,6 +3,9 @@
 ![alt text](https://github.com/TheNightviz/MyBeats/blob/master/Acceptance.png "Acceptance")
 
 
+Our Acceptance Testing folder can be found [here](https://github.com/TheNightviz/MyBeats/blob/master/my-beats/src/cypress/support/integration/AcceptanceTests.js)
+
+
 Feature: Registration
 As a music lover I want to be able to register myself so I can see my music data
 Scenario: Registering with a pre-existing email
